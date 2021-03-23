@@ -1,0 +1,8 @@
+<svg enable-background="new 0 0 40 40" height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg">
+	<circle cx="20" cy="19.999992" fill="#fff" r="20" />
+	
+	<g fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="2">
+		<path d="m19.968941 27.761652-7.761661-7.76166 7.761661-7.761659" />
+		<path d="m12.20728 19.999992h15.585439" />
+	</g>
+</svg>
