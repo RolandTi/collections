@@ -11,11 +11,18 @@
 * openstreetmap
 * rating
 * register_user
-* tag_suggesr
+* tag_suggest
 * themeSwitcher
 * user_login_out
 * zenpage
 
-## CSS+
-* prefers-color-scheme
-* svg icon for locked galleries
+## Supported options
+* Dark / Light theme with *prefers-color-scheme*
+* SVG icons for locked / empty galleries
+* Responsive images using *srcset*
+
+## What next ?
+* Dark / Light switcher with cookie.
+* Better accessibility
+* Handling favorite plugin with multiple sets
+* Choose homepage
