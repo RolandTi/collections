@@ -20,6 +20,7 @@
 * Dark / Light theme with *prefers-color-scheme*
 * SVG icons for locked / empty galleries
 * Responsive images using *srcset*
+* Display a map with all pictures. [From Vincent Bourganel's work](https://www.vincentbourganel.fr/news/map-of-geo-localized-pictures/). 
 
 ## What next ?
 * Dark / Light switcher with cookie.
