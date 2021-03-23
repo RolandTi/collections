@@ -17,10 +17,13 @@
 * zenpage
 
 ## Supported options
-* Dark / Light theme with *prefers-color-scheme*
+* Dark / Light theme with `prefers-color-scheme`
 * SVG icons for locked / empty galleries
-* Responsive images using *srcset*
+* Responsive images using `srcset`
 * Display a map with all pictures. [From Vincent Bourganel's work](https://www.vincentbourganel.fr/news/map-of-geo-localized-pictures/). 
+
+## Installation
+Put the "collections" in ZenPhoto `/themes/` folder.
 
 ## What next ?
 * Dark / Light switcher with cookie.
