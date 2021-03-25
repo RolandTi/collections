@@ -1,11 +1,21 @@
 <?php
 	// Load custom menu
 	if (function_exists('printCustomMenu') && getOption('collection_custommenu')) {
-		printCustomMenu('collection', 'list', 'nav-links', 'menu-active', 'nav-links-sub', 'menu-active-sub', 2,false);
+		printCustomMenu('collection', 'list-top', 'nav-links', 'menu-active', 'nav-links-sub', 'menu-active-sub', 2,false);
 	} 
 	//else…
-	else { ?>		
-	<ul id="nav-links" hidden>
+	else { ?>	
+	<button class="toggle_nav" aria-expanded="false">
+		<div id="menu-icon-anime">
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		</div>
+		<span>Menu</span>
+	</button>	
+	
+	<ul id="nav-links">
 		<?php 
 		//News Index
 		if (function_exists("printAllNewsCategories") && ((getNumNews(true)) > 0)) {
@@ -35,7 +45,7 @@
 		// 	} else {
 		// 	printCustomPageURL(gettext("Archive View"), 'archive');
 		// }
-		echo '</li>';
+//		echo '</li>';
 		// Contact Page
 		if (extensionEnabled('contact_form')) {
 		echo '<li>';
@@ -46,11 +56,11 @@
 		}
 			echo '</li>';
 			// Fix for login link active
-		echo '<li>';
 		if ($_zp_gallery_page == "password.php") {
+			echo '<li>';
 			printCustomPageURL('Login', 'password', '', '','','menu-active');
+			echo '</li>';
 			}
-		echo '</li>';
 		} else { }
 
 if ((function_exists("printUserLogin_out") ) || !zp_loggedin() && function_exists('printRegistrationForm')) {
@@ -59,9 +69,9 @@ if ((function_exists("printUserLogin_out") ) || !zp_loggedin() && function_exist
 				printFavoritesURL(NULL, '<li>', '</li><li>', '</li>');
 			}
 			if (function_exists("printUserLogin_out")) {
-			echo "<li>";
+			echo '<li>';
 				printUserLogin_out('', '','');
-			echo "</li>";
+			echo '</li>';
 
 			}
 }
@@ -73,6 +83,4 @@ if ((function_exists("printUserLogin_out") ) || !zp_loggedin() && function_exist
 		}
 		if (getOption('Allow_search')) {
 			printSearchForm("", "search", "", gettext("Search"));
-				}	?>
-		<button aria-expanded="false" aria-controls="nav-links">Menu</button>
-		
+				}	?>		

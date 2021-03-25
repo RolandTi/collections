@@ -18,29 +18,44 @@
 		<header class="header">
 				<nav class="navbar">
 					<div class="navbar_title_container">
-					<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" class="navbar_title">
-					<?php printGalleryTitle(); ?></a>
+					<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" 
+						class="navbar_title">
+						<?php printGalleryTitle(); ?>
+					</a>
 					</div>
 					<?php include("_navbar.php"); // <ul> with all items ?>
 				</nav>
 		</header>
 		
 		<main class="main album_thumbnail xl-space">
-			<div class="index_gal_desc container"><h1><?php printGalleryTitle(); ?></h1><?php printGalleryDesc(); ?></div>
-			<?php if (extensionEnabled('themeSwitcher') && function_exists('active')) { echo "vrai";} ?>
+			
+			<div class="index_gal_desc container">
+				<h1><?php printGalleryTitle(); ?></h1>
+				<?php printGalleryDesc(); ?>
+			</div>
+			
 			<div id="index_gal">
 				<?php while (next_album()): ?>
 				<figure>
-					<a href="<?php echo html_encode(getAlbumURL()); ?>"><?php #printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), null, 640, 480, 640, 480, NULL, null, NULL,NULL); ?>
-					<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), null, 600, 600, 600, 600, NULL, null, NULL,NULL); ?></a>
+					<a href="<?php echo html_encode(getAlbumURL()); ?>">
+						<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), null, 600, 600, 600, 600, NULL, null, NULL,NULL); ?>
+					</a>
 					<figcaption class="album-title"><?php printAlbumTitle(); ?></figcaption>
 				</figure>
 				<?php endwhile; ?>
 			</div>
-			<div class="pagelist-container"><?php printPageListWithNav("← " . gettext("prev"), gettext("next") . " →"); ?></div>
+			
+			<div class="pagelist-container">
+				<?php printPageListWithNav("← " . gettext("prev"), gettext("next") . " →"); ?>
+			</div>
+			
 		</main>
 
-		<footer class="footer"><?php include("_footer.php"); ?></footer>
-	</div>
+		<footer class="footer">
+			<?php include("_footer.php"); ?>
+		</footer>
+		
+	</div> <!--End grid-container-->
+	
 </body>
 </html>

@@ -45,13 +45,9 @@ echo "</li>";
 			</li>
 </ul>
 
-<?php #printGalleryDesc(); ?>
-
-<?php 
-@call_user_func('mobileTheme::controlLink'); 
-zp_apply_filter('theme_body_close'); 
-?>
-				<script>
+<?php zp_apply_filter('theme_body_close'); ?>
+<script src="<?php echo $_zp_themeroot; ?>/js/collection.js"></script>
+<!--				<script>
 const toggleMenu = document.querySelector(".navbar button");
 const menu = document.querySelector(".navbar ul");
 
@@ -60,4 +56,4 @@ toggleMenu.addEventListener("click", function () {
   toggleMenu.setAttribute("aria-expanded", !open);
   menu.hidden = !menu.hidden;
 });
-				</script>
+				</script>-->
