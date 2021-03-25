@@ -12,6 +12,7 @@
 </head>
 <body>
 	<?php zp_apply_filter('theme_body_open'); ?>
+	<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
 
 	<div class="grid-container">
 	
@@ -27,7 +28,7 @@
 				</nav>
 		</header>
 		
-		<main class="main album_thumbnail xl-space">
+		<main class="main album_thumbnail xl-space" id="main-content">
 			
 			<div class="index_gal_desc container">
 				<h1><?php printGalleryTitle(); ?></h1>
