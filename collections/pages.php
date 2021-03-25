@@ -36,8 +36,26 @@
 
 					?>
 			</article>
-					<?php include("_media_supp.php"); ?>
-			
+		
+				<div class="media_supp xl_hmar">
+					<div class="media_supp_content">
+						<?php	
+						if (function_exists('printCommentForm')) {
+							if ($_zp_current_zenpage_page->getCommentsAllowed() || $_zp_current_zenpage_page->getCommentCount()) {
+								echo '<div class="bloc-comments">';
+								echo '<h2>Commentaires</h2>';
+								printCommentForm();
+								echo '</div>';
+							}
+						}
+						 
+					if (class_exists('ScriptlessSocialSharing')) {
+						ScriptlessSocialSharing::printButtons();
+					}
+					?>
+						</div> <!--END media_supp_content-->
+				</div> <!--END media_supp-->
+
 		</main>
 
 		<footer class="footer">

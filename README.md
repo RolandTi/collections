@@ -1,6 +1,8 @@
 # Collection, a theme for Zenphoto
 **Collection** is a responsive theme for Zenphoto image gallery and CMS. 
 
+![Collection's Homepage Screenshot](collection_00.jpg)
+
 ## Supported plugins
 * cacheManager
 * class-video
