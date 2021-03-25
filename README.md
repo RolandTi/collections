@@ -7,7 +7,7 @@
 * comment_form
 * contact_form
 * favoritesHandler (*no Multiple sets in v.1*)
-* menu_manager
+* menu_manager (*no submenu see ⤵)
 * openstreetmap
 * rating
 * register_user
@@ -21,6 +21,7 @@
 * SVG icons for locked / empty galleries
 * Responsive images using `srcset`
 * Display a map with all pictures. [From Vincent Bourganel's work](https://www.vincentbourganel.fr/news/map-of-geo-localized-pictures/). 
+* Accessible & responsive navbar
 
 ## Installation
 Put the "collections" in ZenPhoto `/themes/` folder.
@@ -30,4 +31,4 @@ Put the "collections" in ZenPhoto `/themes/` folder.
 * Better accessibility
 * Handling favorite plugin with multiple sets
 * Choose homepage
-* Standardize the way Zenphoto add a class to sub-menu with menu-manager
+* Standardize the way Zenphoto add a class to sub-menu with menu-manager so it can handle accessible navigation with keyboard.
