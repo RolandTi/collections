@@ -30,3 +30,4 @@ Put the "collections" in ZenPhoto `/themes/` folder.
 * Better accessibility
 * Handling favorite plugin with multiple sets
 * Choose homepage
+* Standardize the way Zenphoto add a class to sub-menu with menu-manager
