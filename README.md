@@ -26,7 +26,9 @@
 * Accessible & responsive navbar
 
 ## Installation
-Put the "collections" in ZenPhoto `/themes/` folder.
+Put `collections` folder in ZenPhoto `/themes/` folder.
+
+Activate it through ZenPhoto admin. A custom menu will be generate.
 
 ## What next ?
 * Dark / Light switcher with cookie.
