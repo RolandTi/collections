@@ -137,7 +137,9 @@ body {
 	grid-area: header;
 	position: sticky;
 	top: 0;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.8);
+	backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 	z-index: 500;
 }
 
@@ -2025,6 +2027,12 @@ text-align: center;
 		background-color: #3b3b3b;
 		color: #e5e5e5;
 	}
+	
+	.header {
+		background-color: rgba(59, 59, 59, 0.88);
+	backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+	}
 #nav-links a:hover::after, 
 a.menu-active::after,
 #nav-links .menu-active::after,
@@ -2121,7 +2129,7 @@ img[src*="imageDefault"] {
 	
 #search #search_input {
 	background: url(images/search_dark.svg) right center no-repeat;
-	background-size: 25px;
+	background-size: 22px;
 color: black;
 }
 

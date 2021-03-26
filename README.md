@@ -5,6 +5,7 @@
 
 ## Supported plugins
 * cacheManager
+* class-textobject
 * class-video
 * comment_form
 * contact_form
@@ -13,6 +14,7 @@
 * openstreetmap
 * rating
 * register_user
+* related_items
 * tag_suggest
 * themeSwitcher
 * user_ login_out

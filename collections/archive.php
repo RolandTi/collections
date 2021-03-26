@@ -21,8 +21,10 @@ if (!defined('WEBPATH'))
 		<header class="header">
 				<nav class="navbar">
 					<div class="navbar_title_container">
-					<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" class="navbar_title">
-					<?php printGalleryTitle(); ?></a>
+					<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" 
+						class="navbar_title">
+						<?php printGalleryTitle(); ?>
+					</a>
 					</div>
 					<?php include("_navbar.php"); // <ul> with all items ?>
 				</nav>

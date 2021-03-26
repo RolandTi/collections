@@ -15,9 +15,15 @@ if (!defined('WEBPATH'))
 	</head>
 	<body>
 		<?php zp_apply_filter('theme_body_open'); ?>
-				<header class="header">
+		
+		<header class="header">
 				<nav class="navbar">
-					<a href="<?php echo html_encode(getGalleryIndexURL()); ?>"><?php printGalleryTitle(); ?></a>
+					<div class="navbar_title_container">
+					<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" 
+						class="navbar_title">
+						<?php printGalleryTitle(); ?>
+					</a>
+					</div>
 					<?php include("_navbar.php"); // <ul> with all items ?>
 				</nav>
 		</header>

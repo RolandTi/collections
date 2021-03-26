@@ -63,19 +63,6 @@
 			}
 		} else { }
 
-if ((function_exists("printUserLogin_out") ) || !zp_loggedin() && function_exists('printRegistrationForm')) {
-
-			if (function_exists('printFavoritesURL')) {
-				printFavoritesURL(NULL, '<li>', '</li><li>', '</li>');
-			}
-			if (function_exists("printUserLogin_out")) {
-			echo '<li>';
-				printUserLogin_out('', '','');
-			echo '</li>';
-
-			}
-}
-
 				?>
 
 </ul>
