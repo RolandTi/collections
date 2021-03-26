@@ -6,12 +6,12 @@
 	//else…
 	else { ?>	
 	<button class="toggle_nav" aria-expanded="false">
-		<div id="menu-icon-anime">
+		<span id="menu-icon-anime">
 		  <span></span>
 		  <span></span>
 		  <span></span>
 		  <span></span>
-		</div>
+		</span>
 		<!--<span>Menu</span>-->
 	</button>	
 	
@@ -26,11 +26,11 @@
 			printCustomPageURL(gettext('News'), 'news');
 			}
 			echo '</li>'; } 
-		// List 1rt level Pages
+		// Top level pages
 		if (function_exists("printPageMenu") && ((getNumPages(true)) > 0)) { 
 		printPageMenu("list-top","","menu-active","","","","1",false); 
 		}
-		// Gallery
+		// Gallery index
 		echo '<li>';
 		if ($_zp_gallery_page == "index.php") {
 			printCustomPageURL(gettext("Gallery"), 'index', '', '','','menu-active');
@@ -62,12 +62,12 @@
 			echo '</li>';
 			}
 		} else { }
-
 				?>
 
 </ul>
 		<?php
 		}
 		if (getOption('Allow_search')) {
-			printSearchForm("", "search", "", gettext("Search"));
-				}	?>		
+				printSearchForm("", "search", "", gettext("Search"));
+				}	
+		?>		

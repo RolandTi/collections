@@ -1,5 +1,5 @@
-# Collections, a theme for Zenphoto
-**[Collections](https://collections.rolandtisserand.fr/)** is a responsive theme for Zenphoto image gallery and CMS. 
+# Collections, a theme for ZenphotoCMS
+**[Collections](https://collections.rolandtisserand.fr/)** is a responsive theme for ZenphotoCMS image gallery and CMS. 
 
 ![Collections' Homepage Screenshot](collections_00.jpg)
 
@@ -21,19 +21,20 @@
 * zenpage
 
 ## Supported options
-* Dark / Light theme with `prefers-color-scheme`
-* SVG icons for locked / empty galleries
 * Responsive images using `srcset`
+* Dark / Light theme with `prefers-color-scheme`
 * Accessible & responsive navbar
+* SVG icons hack with CSS (empty, protected, text... will add more) 
 
 ## Installation
-Put `collections` folder in ZenPhoto `/themes/` folder.
+Put `collections` folder in ZenphotoCMS `/themes/` folder.
 
-Activate it through ZenPhoto admin. A custom menu will be generate.
+Activate it through ZenphotoCMS admin. A custom menu will be generate.
 
 ## What next ?
 * Dark / Light switcher with cookie.
 * Better accessibility
 * Handling favorite plugin with multiple sets
 * Choose homepage
-* Standardize the way Zenphoto add a class to sub-menu with menu-manager so it can handle accessible navigation with keyboard.
+* Finding a way to standardize class for sub-menu with `menu_manager` so it can handle accessible navigation with keyboard.
+* Fix the space in picture URI due to `&dsp=Protected view`

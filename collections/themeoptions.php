@@ -16,7 +16,7 @@ class ThemeOptions {
 		setThemeOptionDefault('collections_zp_index_news', false);
 		setThemeOptionDefault('Allow_search', true);
 		setThemeOptionDefault('Use_thickbox', true);
-		setThemeOptionDefault('collections_homepage', 'none');
+#		setThemeOptionDefault('collections_homepage', 'none');
 		setThemeOptionDefault('collections_custommenu', false);
 		setThemeOptionDefault('albums_per_page', 8);
 		setThemeOptionDefault('images_per_page', 20);
@@ -27,15 +27,15 @@ class ThemeOptions {
 		setThemeOptionDefault('thumb_crop_height', 450);
 		setThemeOptionDefault('thumb_crop', 1);
 		setThemeOptionDefault('thumb_transition', 1);
-		setThemeOptionDefault('collections_map', false);
+#		setThemeOptionDefault('collections_map', false);
 		setThemeOptionDefault('collections_download', true);
 		setThemeOptionDefault('comment_form_toggle', false);
 
-		if (extensionEnabled('zenpage')) {
-			setThemeOption('custom_index_page', 'gallery', NULL, 'zenpage', false);
-		} else {
-			setThemeOption('custom_index_page', '', NULL, 'zenpage', false);
-		}
+#		if (extensionEnabled('zenpage')) {
+#			setThemeOption('custom_index_page', 'gallery', NULL, 'zenpage', false);
+#		} else {
+#			setThemeOption('custom_index_page', '', NULL, 'zenpage', false);
+#		}
 		if (class_exists('cacheManager')) {
 			cacheManager::deleteCacheSizes($me);
 			cacheManager::addDefaultThumbSize();
@@ -101,10 +101,10 @@ class ThemeOptions {
 						'key' => 'Allow_search',
 						'type' => OPTION_TYPE_CHECKBOX,
 						'desc' => gettext('Check to enable search form.')),
-				gettext('Map page') => array(
-						'key' => 'collections_map',
-						'type' => OPTION_TYPE_CHECKBOX,
-						'desc' => gettext('Check to enable map page.')),
+//				gettext('Map page') => array(
+//						'key' => 'collections_map',
+//						'type' => OPTION_TYPE_CHECKBOX,
+//						'desc' => gettext('Check to enable map page.')),
 				gettext('Download Button') => array(
 						'key' => 'collections_download',
 						'type' => OPTION_TYPE_CHECKBOX,
@@ -113,12 +113,12 @@ class ThemeOptions {
 						'key' => 'collections_zp_index_news',
 						'type' => OPTION_TYPE_CHECKBOX,
 						'desc' => gettext("Enable this if you want to show the news section’s first page on the <code>index.php</code> page.")),
-				gettext('Homepage') => array(
-						'key' => 'collections_homepage',
-						'type' => OPTION_TYPE_SELECTOR,
-						'selections' => $list,
-						'null_selection' => gettext('none'),
-						'desc' => gettext("Choose here any <em>un-published Zenpage page</em> (listed by <em>titlelink</em>) to act as your site’s homepage instead the normal gallery index.") . "<p class='notebox'>" . gettext("<strong>Note:</strong> This of course overrides the <em>News on index page</em> option and your theme must be setup for this feature! Visit the theming tutorial for details.") . "</p>"),
+#				gettext('Homepage') => array(
+#						'key' => 'collections_homepage',
+#						'type' => OPTION_TYPE_SELECTOR,
+#						'selections' => $list,
+#						'null_selection' => gettext('none'),
+#						'desc' => gettext("Choose here any <em>un-published Zenpage page</em> (listed by <em>titlelink</em>) to act as your site’s homepage instead the normal gallery index.") . "<p class='notebox'>" . gettext("<strong>Note:</strong> This of course overrides the <em>News on index page</em> option and your theme must be setup for this feature! Visit the theming tutorial for details.") . "</p>"),
 				gettext('Use custom menu') => array(
 						'key' => 'collections_custommenu',
 						'type' => OPTION_TYPE_CHECKBOX,

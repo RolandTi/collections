@@ -27,15 +27,18 @@
 		
 		
 		<main class="container main two-cols xl-space">
+			
 			<h1 class="page_title"><?php echo gettext('Contact us'); ?></h1>
+			
 			<div class="contact-form">
 				<?php printContactForm(); ?>
 			</div>
+			
 		</main>
 		
 		<footer class="footer"><?php include("_footer.php"); ?></footer>
+		
 	</div>
 </body>
 </html>
-
-	<?php } else {	include(SERVERPATH . '/' . ZENFOLDER . '/404.php'); } ?>
+<?php } else {	include(SERVERPATH . '/' . ZENFOLDER . '/404.php'); } ?>

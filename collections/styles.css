@@ -362,7 +362,8 @@ a:active, a:hover, .imagetitle {
 	align-items: center;
 	padding-left: 2rem;
 	padding-right: 2rem;
-	padding-top: .5rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 	font-weight: 300;
 	position: -webkit-sticky;
 	position:sticky;
@@ -445,7 +446,6 @@ cursor: pointer;
   -o-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
 	overflow: hidden;
-	margin-right: 5px;
 }
 
 #menu-icon-anime span {
@@ -765,6 +765,8 @@ font-size: 125%;
 			.navbar {
 		padding-left: 3rem;
 		padding-right: 3rem;
+		padding-top: 0;
+		padding-bottom: 0;
 		font-size: 100%;
 	flex-direction: row;
 }
@@ -1243,6 +1245,11 @@ z-index: 900;
 
 div.textobject {
 	background-color: white;
+	max-width: 80rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	max-height: 50vh !important;
+	overflow: auto;
 }
 
 @media (min-width:1280px) {
