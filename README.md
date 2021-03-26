@@ -1,5 +1,5 @@
 # Collections, a theme for Zenphoto
-**Collections** is a responsive theme for Zenphoto image gallery and CMS. 
+**[Collections](https://collections.rolandtisserand.fr/)** is a responsive theme for Zenphoto image gallery and CMS. 
 
 ![Collections' Homepage Screenshot](collections_00.jpg)
 
