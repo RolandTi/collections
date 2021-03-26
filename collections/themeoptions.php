@@ -13,22 +13,22 @@ class ThemeOptions {
 
 	function __construct() {
 		$me = basename(dirname(__FILE__));
-		setThemeOptionDefault('collection_zp_index_news', false);
+		setThemeOptionDefault('collections_zp_index_news', false);
 		setThemeOptionDefault('Allow_search', true);
 		setThemeOptionDefault('Use_thickbox', true);
-		setThemeOptionDefault('collection_homepage', 'none');
-		setThemeOptionDefault('collection_custommenu', false);
+		setThemeOptionDefault('collections_homepage', 'none');
+		setThemeOptionDefault('collections_custommenu', false);
 		setThemeOptionDefault('albums_per_page', 8);
 		setThemeOptionDefault('images_per_page', 20);
-		setThemeOption('image_size', 2200, NULL, 'collection');
-		setThemeOption('image_use_side', 'longest', NULL, 'collection');
-		setThemeOption('thumb_size', 250, NULL, 'collection');
-		setThemeOptionDefault('thumb_crop_width', 250);
-		setThemeOptionDefault('thumb_crop_height', 250);
+		setThemeOption('image_size', 2200, NULL, 'collections');
+		setThemeOption('image_use_side', 'longest', NULL, 'collections');
+		setThemeOption('thumb_size', 450, NULL, 'collections');
+		setThemeOptionDefault('thumb_crop_width', 450);
+		setThemeOptionDefault('thumb_crop_height', 450);
 		setThemeOptionDefault('thumb_crop', 1);
 		setThemeOptionDefault('thumb_transition', 1);
-		setThemeOptionDefault('collection_map', false);
-		setThemeOptionDefault('collection_download', true);
+		setThemeOptionDefault('collections_map', false);
+		setThemeOptionDefault('collections_download', true);
 		setThemeOptionDefault('comment_form_toggle', false);
 
 		if (extensionEnabled('zenpage')) {
@@ -86,7 +86,7 @@ class ThemeOptions {
 							'include_li' => 0,
 							'nesting' => 1),
 			);
-			createMenuIfNotExists($menuitems, 'collection');
+			createMenuIfNotExists($menuitems, 'collections');
 		}
 	}
 
@@ -102,25 +102,25 @@ class ThemeOptions {
 						'type' => OPTION_TYPE_CHECKBOX,
 						'desc' => gettext('Check to enable search form.')),
 				gettext('Map page') => array(
-						'key' => 'collection_map',
+						'key' => 'collections_map',
 						'type' => OPTION_TYPE_CHECKBOX,
 						'desc' => gettext('Check to enable map page.')),
 				gettext('Download Button') => array(
-						'key' => 'collection_download',
+						'key' => 'collections_download',
 						'type' => OPTION_TYPE_CHECKBOX,
 						'desc' => gettext("Check to enable users the ability to download original image from image details page. If you want a save dialog, you will need to set the appropriate option in options->image as well (protected, download).")),
 				gettext('News on index page') => array(
-						'key' => 'collection_zp_index_news',
+						'key' => 'collections_zp_index_news',
 						'type' => OPTION_TYPE_CHECKBOX,
 						'desc' => gettext("Enable this if you want to show the news section’s first page on the <code>index.php</code> page.")),
 				gettext('Homepage') => array(
-						'key' => 'collection_homepage',
+						'key' => 'collections_homepage',
 						'type' => OPTION_TYPE_SELECTOR,
 						'selections' => $list,
 						'null_selection' => gettext('none'),
 						'desc' => gettext("Choose here any <em>un-published Zenpage page</em> (listed by <em>titlelink</em>) to act as your site’s homepage instead the normal gallery index.") . "<p class='notebox'>" . gettext("<strong>Note:</strong> This of course overrides the <em>News on index page</em> option and your theme must be setup for this feature! Visit the theming tutorial for details.") . "</p>"),
 				gettext('Use custom menu') => array(
-						'key' => 'collection_custommenu',
+						'key' => 'collections_custommenu',
 						'type' => OPTION_TYPE_CHECKBOX,
 						'desc' => gettext('Check this if you want to use the <em>menu_manager</em> plugin if enabled to build a custom menu instead of the separate standard ones. A standard menu named "zenpage" is created and used automatically.'))
 		);

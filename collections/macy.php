@@ -39,4 +39,10 @@
 			}
   }
 });
+
+masonry.runOnImageLoad(function () {
+  console.log('I only get called when all images are loaded');
+  masonry.recalculate(true, true);
+});
+
 </script>

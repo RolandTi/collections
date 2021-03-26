@@ -77,6 +77,11 @@ td, th {
 	strong {
 		font-weight: 500;
 	}
+	
+	code {
+		font-size: 110%;
+		font-family: monospace;
+	}
 
 /* @end */
 
@@ -411,9 +416,10 @@ position: relative;
 -webkit-appearance: none;
 	background-color: unset;
 	border: none;
+	padding: 0;
 	padding-top: 2px;
 	font-size: unset;
-	margin-left: 15px;
+	margin-left: 12px;
 	z-index: 250;
 	position: relative;
 	display: flex;
@@ -426,7 +432,7 @@ cursor: pointer;
 /* Animation */
 #menu-icon-anime {
   width: 15px;
-  height: 12px;
+  height: 13px;
   position: relative;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
@@ -456,6 +462,11 @@ cursor: pointer;
   -moz-transition: .25s ease-in-out;
   -o-transition: .25s ease-in-out;
   transition: .25s ease-in-out;
+}
+
+.toggle_nav:hover > #menu-icon-anime span {
+  background: gray;
+	
 }
 
 #menu-icon-anime span:nth-child(1) {
@@ -504,8 +515,10 @@ cursor: pointer;
 }
 
 .navbar .toggle_nav:hover {
-	box-shadow: rgba(0, 0, 0, 0.45) 0px 1px 2px 0px,0 0 0 4px rgb(0 0 0 / 15%);
+color: grey;
 }
+
+
 
 a.navbar_title {
 	font-weight: 500;
@@ -619,7 +632,7 @@ padding-bottom: 10px !important;
 	height: 20px;
 	float: right;
 	background: url(images/search_light.svg) right center no-repeat;
-	background-size: 17px;
+	background-size: 18px;
 	border: none;
 	cursor: pointer;
 	color: transparent;
@@ -1974,7 +1987,7 @@ left: 30vw;
 
 
 .btn-action {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     padding: 18px;
     margin: 6px;
     text-align: center;
@@ -1993,6 +2006,15 @@ display: flex;
 flex-basis: auto;
 justify-content: center;
 text-align: center;
+}
+
+.shadow {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.space-up-bottom {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 }
 
 

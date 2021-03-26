@@ -1,7 +1,7 @@
-# Collection, a theme for Zenphoto
-**Collection** is a responsive theme for Zenphoto image gallery and CMS. 
+# Collections, a theme for Zenphoto
+**Collections** is a responsive theme for Zenphoto image gallery and CMS. 
 
-![Collection's Homepage Screenshot](collection_00.jpg)
+![Collections' Homepage Screenshot](collections_00.jpg)
 
 ## Supported plugins
 * cacheManager
@@ -15,14 +15,13 @@
 * register_user
 * tag_suggest
 * themeSwitcher
-* user_login_out
+* user_ login_out
 * zenpage
 
 ## Supported options
 * Dark / Light theme with `prefers-color-scheme`
 * SVG icons for locked / empty galleries
 * Responsive images using `srcset`
-* Display a map with all pictures. [From Vincent Bourganel's work](https://www.vincentbourganel.fr/news/map-of-geo-localized-pictures/). 
 * Accessible & responsive navbar
 
 ## Installation

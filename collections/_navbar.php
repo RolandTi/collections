@@ -1,7 +1,7 @@
 <?php
 	// Load custom menu
-	if (function_exists('printCustomMenu') && getOption('collection_custommenu')) {
-		printCustomMenu('collection', 'list-top', 'nav-links', 'menu-active', 'nav-links-sub', 'menu-active-sub', 2,false);
+	if (function_exists('printCustomMenu') && getOption('collections_custommenu')) {
+		printCustomMenu('collections', 'list-top', 'nav-links', 'menu-active', 'nav-links-sub', 'menu-active-sub', 2,false);
 	} 
 	//else…
 	else { ?>	
@@ -12,7 +12,7 @@
 		  <span></span>
 		  <span></span>
 		</div>
-		<span>Menu</span>
+		<!--<span>Menu</span>-->
 	</button>	
 	
 	<ul id="nav-links">
