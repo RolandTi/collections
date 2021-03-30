@@ -39,7 +39,7 @@
 					?>
 			</article>
 		
-				<div class="media_supp xl_hmar">
+				<aside class="media_supp xl_hmar">
 					<div class="media_supp_content">
 						<?php	
 						if (function_exists('printCommentForm')) {
@@ -56,7 +56,7 @@
 					}
 					?>
 						</div> <!--END media_supp_content-->
-				</div> <!--END media_supp-->
+				</aside> <!--END media_supp-->
 
 		</main>
 
