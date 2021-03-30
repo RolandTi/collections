@@ -24,17 +24,18 @@
 * Responsive images using `srcset`
 * Dark / Light theme with `prefers-color-scheme`
 * Accessible & responsive navbar
-* SVG icons hack with CSS (empty, protected, text... will add more) 
+* SVG icons hack with CSS (empty, protected, text... will add more)
+* Show / Hide title & description for Album view 
 
 ## Installation
-Put `collections` folder in ZenphotoCMS `/themes/` folder.
-
-Activate it through ZenphotoCMS admin. A custom menu will be generate.
+Upload `collections` folder in ZenphotoCMS `/themes/` folder.
+Activate it through ZenphotoCMS admin.
 
 ## What next ?
+* Fix the space in picture URI due to `&dsp=Protected view`
 * Dark / Light switcher with cookie.
 * Better accessibility
 * Handling favorite plugin with multiple sets
 * Choose homepage
 * Finding a way to standardize class for sub-menu with `menu_manager` so it can handle accessible navigation with keyboard.
-* Fix the space in picture URI due to `&dsp=Protected view`
+* Fixing glitches between Google Recaptcha iframe & macy.js

@@ -4,7 +4,6 @@
 	trueOrder: false,
 	waitForImages: false,
 	useOwnImageLoader: false,
-	debug: false,
 	mobileFirst: true,
 	columns: 2,
 	margin: 10,
@@ -41,8 +40,13 @@
 });
 
 masonry.runOnImageLoad(function () {
-  console.log('I only get called when all images are loaded');
   masonry.recalculate(true, true);
 });
+
+//    macy.runOnImageLoad(function() {
+//        macy.recalculate(true, true);
+//        $("#album_masonry").removeClass("hide");
+//    });
+// What if javascript not activated ? ^^'
 
 </script>

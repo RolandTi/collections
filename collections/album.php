@@ -1,6 +1,6 @@
 <?php if (!defined('WEBPATH'))	die(); ?>
 <!doctype html>
-<html lang="fr">
+<html<?php printLangAttribute(); ?>>
 <head>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,13 +50,30 @@
 						alt="<?php echo getBareImageTitle(); ?>" 
 						width="<?php echo getFullWidth(); ?>" 
 						height="<?php echo getFullHeight(); ?>" />
-						</a></figure>
+						</a>
+						<?php if (getOption('col_albdesc')) {
+						echo '<figcaption>';
+						echo '<strong>';
+						echo printBareImageTitle();
+						echo '</strong>';
+						echo printBareImageDesc();
+						echo '</figcaption>';
+						} ?>
+						</figure>
 					<?php	} 
 					 else { ?>
 					<figure class="document">
 						<a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
 						<?php printImageThumb(getBareImageTitle()); ?>
 						</a>
+						<?php if (getOption('col_albdesc')) {
+						echo '<figcaption>';
+						echo '<strong>';
+						echo printBareImageTitle();
+						echo '</strong>';
+						echo printBareImageDesc();
+						echo '</figcaption>';
+						} ?>
 					</figure>
 				<?php	}  
 						endwhile; ?>
@@ -65,7 +82,7 @@
 					<div class="album_detail">
 						<div class="album_descr"><?php printTags('links', '', 'taglist', ''); ?></div>
 						<div class="picture_icons">				<?php	if(function_exists('printAddToFavorites')) {?>
-					<div class="bloc-favs"><?php	printAddToFavorites($_zp_current_album); ?></div>
+					<div class="bloc-favs"><?php	 printAddToFavorites($_zp_current_album); ?></div>
 					<?php } ?></div>
 					</div>
 			<div class="pagelist-container"><?php printPageListWithNav("← " . gettext("prev"), gettext("next") . " →"); ?></div>
@@ -95,19 +112,12 @@
 			echo '</div>';
 		} 
 		if(function_exists('printOpenStreetMap')) {
-			#if (!is_null(printOpenStreetMap())) {
 				echo '<div class="bloc-osm">';
 				echo '<h2>Maps</h2>';
 				@call_user_func('printOpenStreetMap');
 				echo '</div>';
-			#}
 		}
-		if (getImageMetaData()) {
-			echo '<div class="bloc-metadata">';
-			echo '<h2>Infos</h2>';
-			printImageMetadata('',false,'imagemetadata');
-			echo '</div>';
-	 } 
+
 	if (class_exists('ScriptlessSocialSharing')) {
 		ScriptlessSocialSharing::printButtons();
 	}

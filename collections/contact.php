@@ -10,8 +10,8 @@
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/styles.css" type="text/css" />
 </head>
 <body>
-	<div class="grid-container">
 		<?php zp_apply_filter('theme_body_open'); ?>
+	<div class="grid-container">
 	
 		<header class="header">
 				<nav class="navbar">

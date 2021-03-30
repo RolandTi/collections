@@ -876,6 +876,14 @@ img[src*="imageDefault"] {
 	background-size: 100%;
 }
 
+.galeries figcaption strong {
+	display: block;
+}
+
+.galeries figcaption {
+	margin-top: 1rem;
+}
+
 /* @end */
 
 /* @group Pagination */

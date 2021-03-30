@@ -14,7 +14,7 @@
 </head>
 <body>
 	<?php zp_apply_filter('theme_body_open'); ?>
-	
+	<div class="grid-container">
 	
 		<header class="header">
 				<nav class="navbar">

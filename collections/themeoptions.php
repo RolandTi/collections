@@ -13,7 +13,8 @@ class ThemeOptions {
 
 	function __construct() {
 		$me = basename(dirname(__FILE__));
-		setThemeOptionDefault('collections_zp_index_news', false);
+		
+		// set core theme option defaults
 		setThemeOptionDefault('Allow_search', true);
 		setThemeOptionDefault('Use_thickbox', true);
 #		setThemeOptionDefault('collections_homepage', 'none');
@@ -27,9 +28,14 @@ class ThemeOptions {
 		setThemeOptionDefault('thumb_crop_height', 450);
 		setThemeOptionDefault('thumb_crop', 1);
 		setThemeOptionDefault('thumb_transition', 1);
+
+		// set custom theme option defaults
 #		setThemeOptionDefault('collections_map', false);
 		setThemeOptionDefault('collections_download', true);
 		setThemeOptionDefault('comment_form_toggle', false);
+		setThemeOptionDefault('col_albdesc', false);
+		
+		
 
 #		if (extensionEnabled('zenpage')) {
 #			setThemeOption('custom_index_page', 'gallery', NULL, 'zenpage', false);
@@ -109,10 +115,10 @@ class ThemeOptions {
 						'key' => 'collections_download',
 						'type' => OPTION_TYPE_CHECKBOX,
 						'desc' => gettext("Check to enable users the ability to download original image from image details page. If you want a save dialog, you will need to set the appropriate option in options->image as well (protected, download).")),
-				gettext('News on index page') => array(
-						'key' => 'collections_zp_index_news',
+				gettext('Title & Desc. in album view') => array(
+						'key' => 'col_albdesc',
 						'type' => OPTION_TYPE_CHECKBOX,
-						'desc' => gettext("Enable this if you want to show the news section’s first page on the <code>index.php</code> page.")),
+						'desc' => gettext("If active, add title & description under the picture in album mode.")),
 #				gettext('Homepage') => array(
 #						'key' => 'collections_homepage',
 #						'type' => OPTION_TYPE_SELECTOR,
