@@ -83,12 +83,13 @@
 				
 				<div class="picture_icons">
 					<?php if (getOption('collections_download')) { ?><a download href="<?php echo html_encode(getFullImageURL()); ?>" title="<?php echo gettext('Download'); ?>"   class="svg_button download" >
-						<svg width="16px" height="20px" viewBox="0 0 16 20">
+						<svg width="16px" height="25px" viewBox="0 0 16 25">
 							<path fill="#6a6a6a" d="M8,16L0,8l1.4-1.4L7,12.2V0h2v12.2l5.6-5.6L16,8L8,16z M0.5,20.6h15l0-2h-15L0.5,20.6z" />
 						</svg>
 					</a><?php } ?>
 
-				<?php if(function_exists('printAddToFavorites')) {?><div class="bloc-favs">
+				<?php if(function_exists('printAddToFavorites')) {?>
+				<div class="bloc-favs">
 				<?php	#printAddToFavorites($_zp_current_image,"add","remove"); 
 				printAddToFavorites($_zp_current_image); 
 				?></div><?php } ?>				
