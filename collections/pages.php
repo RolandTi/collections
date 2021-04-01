@@ -41,20 +41,19 @@
 		
 				<aside class="media_supp xl_hmar">
 					<div class="media_supp_content">
-						<?php	
-						if (function_exists('printCommentForm')) {
-							if ($_zp_current_zenpage_page->getCommentsAllowed() || $_zp_current_zenpage_page->getCommentCount()) {
-								echo '<div class="bloc-comments">';
-								echo '<h2>Commentaires</h2>';
-								printCommentForm();
-								echo '</div>';
-							}
-						}
-						 
-					if (class_exists('ScriptlessSocialSharing')) {
-						ScriptlessSocialSharing::printButtons();
-					}
-					?>
+						<div class="media_supp_content_col"></div>
+						<div class="media_supp_content_col">
+							<?php 
+								if (function_exists('printCommentForm')) {
+									if ($_zp_current_zenpage_page->getCommentsAllowed() || $_zp_current_zenpage_page->getCommentCount()) {
+										echo '<section class="bloc-comments">';
+										echo '<h2>Commentaires</h2>';
+										printCommentForm();
+										echo '</section>';
+									}
+								} 
+								?>
+							</div>
 						</div> <!--END media_supp_content-->
 				</aside> <!--END media_supp-->
 
@@ -66,6 +65,9 @@
 	</div>
 </body>
 </html>
+
+
+
 
 
 

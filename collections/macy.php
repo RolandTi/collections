@@ -1,3 +1,4 @@
+			<script src="<?php echo $_zp_themeroot; ?>/js/macy.js"></script>
 	    <script>
 	        var masonry = new Macy({
 	container: '#album_masonry',

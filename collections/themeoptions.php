@@ -32,10 +32,9 @@ class ThemeOptions {
 		// set custom theme option defaults
 #		setThemeOptionDefault('collections_map', false);
 		setThemeOptionDefault('collections_download', true);
+		setThemeOptionDefault('collections_metas', true);
 		setThemeOptionDefault('comment_form_toggle', false);
-		setThemeOptionDefault('col_albdesc', false);
-		
-		
+		setThemeOptionDefault('col_albdesc', false);		
 
 #		if (extensionEnabled('zenpage')) {
 #			setThemeOption('custom_index_page', 'gallery', NULL, 'zenpage', false);
@@ -115,6 +114,10 @@ class ThemeOptions {
 						'key' => 'collections_download',
 						'type' => OPTION_TYPE_CHECKBOX,
 						'desc' => gettext("Check to enable users the ability to download original image from image details page. If you want a save dialog, you will need to set the appropriate option in options->image as well (protected, download).")),
+				gettext('Metadata') => array(
+						'key' => 'collections_metas',
+						'type' => OPTION_TYPE_CHECKBOX,
+						'desc' => gettext("Check to enable metadata view.")),
 				gettext('Title & Desc. in album view') => array(
 						'key' => 'col_albdesc',
 						'type' => OPTION_TYPE_CHECKBOX,

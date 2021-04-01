@@ -52,17 +52,17 @@
 							
 							<?php 
 									if(function_exists('printRating')) {
-			echo '<div class="bloc-rating">';
+			echo '<section class="bloc-rating">';
 			echo '<div class="bloc-rating-content">';
 			@call_user_func('printRating'); 
 			echo '</div>';
-			echo '</div>';
+			echo '</section>';
 		 } 
 		 		if (function_exists('printCommentForm')) {
-			echo '<div class="bloc-comments">';
+			echo '<section class="bloc-comments">';
 			echo '<h2>Commentaires</h2>';
 			printCommentForm();
-			echo '</div>';
+			echo '</section>';
 		} ?>
 
 

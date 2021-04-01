@@ -82,7 +82,7 @@
 				</div>
 				
 				<div class="picture_icons">
-					<?php if (getOption('collection_download')) { ?><a download href="<?php echo html_encode(getFullImageURL()); ?>" title="<?php echo gettext('Download'); ?>"   class="svg_button download" >
+					<?php if (getOption('collections_download')) { ?><a download href="<?php echo html_encode(getFullImageURL()); ?>" title="<?php echo gettext('Download'); ?>"   class="svg_button download" >
 						<svg width="16px" height="20px" viewBox="0 0 16 20">
 							<path fill="#6a6a6a" d="M8,16L0,8l1.4-1.4L7,12.2V0h2v12.2l5.6-5.6L16,8L8,16z M0.5,20.6h15l0-2h-15L0.5,20.6z" />
 						</svg>
@@ -95,55 +95,64 @@
 				</div>
 			</div> <!--END picture_detail-->
 				
-			<div class="media_supp xl_hmar">
+			<?php if(function_exists('printRating') || function_exists('printGoogleMap') ||function_exists('printOpenStreetMap') || (getOption('collections_metas')) ||function_exists('printCommentForm')) {   ?>
+			<aside class="media_supp xl_hmar">
 				<div class="media_supp_content">
+					<div class="media_supp_content_col">
 					<?php 
 					if(function_exists('printRating')) {
-						echo '<div class="bloc-rating">';
+						echo '<section class="bloc-rating">';
 						echo '<h2>Rating</h2>';
 						echo '<div class="bloc-rating-content">';
 						@call_user_func('printRating'); 
 						echo '</div>';
-						echo '</div>';
+						echo '</section>';
 					 } 
-					if (function_exists('printCommentForm')) {
-						if ($_zp_current_image->getCommentsAllowed() || $_zp_current_image->getCommentCount()) {
-							echo '<div class="bloc-comments">';
-							echo '<h2>Commentaires</h2>';
-							printCommentForm();
-							echo '</div>';
-						}
-					} 
 					if(function_exists('printGoogleMap')) {
-						echo '<div class="bloc-gmaps">';
+						echo '<section class="bloc-gmaps">';
 						@call_user_func('printGoogleMap');
-						echo '</div>';
+						echo '</section>';
 					} 
 					if(function_exists('printOpenStreetMap') && (getImageData('EXIFGPSLatitude')!='')) {
-						echo '<div class="bloc-osm">';
+						echo '<section class="bloc-osm">';
 						echo '<h2>Maps</h2>';
 						@call_user_func('printOpenStreetMap');
-						echo '</div>';
+						echo '</section>';
 					}
-					if (getImageMetaData()) {
-						echo '<div class="bloc-metadata">';
+					if (getImageMetaData() && (getOption('collections_metas'))) {
+						echo '<section class="bloc-metadata">';
 						echo '<h2>Infos</h2>';
 						printImageMetadata('',false,'imagemetadata');
-						echo '</div>';
+						echo '</section>';
 				 } 
-				if (class_exists('ScriptlessSocialSharing')) {
+					if (class_exists('ScriptlessSocialSharing')) {
 					ScriptlessSocialSharing::printButtons();
-				}
+					}
 				?>
+				</div>
+				<div class="media_supp_content_col">
+				<?php 
+					if (function_exists('printCommentForm')) {
+						if ($_zp_current_image->getCommentsAllowed() || $_zp_current_image->getCommentCount()) {
+							echo '<section class="bloc-comments">';
+							echo '<h2>Commentaires</h2>';
+							printCommentForm();
+							echo '</section>';
+						}
+					} 
+					?>
+					</div>
 					</div> <!--END media_supp_content-->
-			</div> <!--END media_supp-->
+			</aside> <!--END media_supp-->
+			<?php } ?>
+			
 			<?php if (function_exists('printRelatedItems') && !empty(getRelatedItems('all'))) { ?>
 			<?php #if (function_exists('printRelatedItems')) { ?>
-				<div class="bloc_relat_item ">
+				<section class="bloc_relat_item ">
 				<div class="bloc_relat_item_content">
 						<?php printRelatedItems(5,'all',null,100,true); ?>
 				</div>
-			</div>
+			</section>
 			<?php } ?>
 
 		</main>
@@ -154,68 +163,6 @@
 	</div>
 	<script src="<?php echo $_zp_themeroot; ?>/js/macy.js"></script>
 	
-	<script>
-		var masonry = new Macy({
-	container: '.media_supp_content',
-	trueOrder: false,
-	waitForImages: false,
-	useOwnImageLoader: false,
-	debug: true,
-	mobileFirst: true,
-	columns: 1,
-	margin: 10,
-	breakAt: {
-		1800: {
-			margin: {
-				x: 96,
-				y: 24,
-				
-			},
-			columns: 2
-		},
-		1280: {
-			margin: {
-				x: 30,
-				y: 24,
-				
-			},
-			columns: 2
-		},
-		960: {
-			margin: {
-				x: 30,
-				y: 24,
-				
-			},
-			columns: 2
-		},
-		720: {
-			margin: {
-				x: 15,
-				y: 20,
-				
-			},
-			columns: 2
-		}
-	}
-});
-</script>
-<!-- This script is a fix with macy and google recapcha iframe  -->
-<!--<script>
-	$(document).ready(function() {   //same as: $(function() { 
-     masonry.recalculate(true);
-});
-</script>-->
-
-<!--<script>
-	window.onload = masonry.recalculate();
-</script>-->
-<!--
-<script>
-	$(document).ready(function() {   //same as: $(function() { 
-     masonry.recalculate(true);
-});
-</script>-->
 
 <script>
     masonry.runOnImageLoad(function() {

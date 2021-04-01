@@ -27,15 +27,16 @@
 				</nav>
 		</header>
 
+		<main class="container main two-cols xl-space">
+				<div>
+					<h1 class="page_title"><?php echo gettext('Register for this site'); ?></h1>
+				</div>
+				
+				<div class="password-form">
+				<?php printRegistrationForm(); ?>
+				</div>
+		</main>	
 	
-	
-	<main class="container main centered page">
-		<div class="password-form">
-		<?php printRegistrationForm(); ?>
-
-
-		</div>
-	</main>
 
 <footer class="footer">
 <?php include("_footer.php"); ?>
@@ -43,3 +44,5 @@
 </div>
 </body>
 </html>
+
+
