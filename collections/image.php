@@ -11,7 +11,10 @@
 	<?php printHeadTitle(); ?>
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/styles.css" type="text/css" />
 </head>
-<body>	<?php zp_apply_filter('theme_body_open'); ?>
+<body>
+<?php zp_apply_filter('theme_body_open'); ?>
+	<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
+
 	<div class="grid-container">
 		<header class="header">
 			<nav class="navbar">

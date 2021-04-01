@@ -2260,5 +2260,9 @@ figure.sub_album img, #index_gal figure img {
 box-shadow: 0 0 4px #000000;	
 border: none;
 	}
+	
+	div.textobject {
+		background-color: #3b3b3b;
+}
 }
 

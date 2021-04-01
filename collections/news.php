@@ -12,6 +12,8 @@
 </head>
 <body>
 	<?php zp_apply_filter('theme_body_open'); ?>
+			<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
+
 
 	<div class="grid-container">
 	

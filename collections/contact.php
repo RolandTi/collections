@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/styles.css" type="text/css" />
 </head>
 <body>
+			<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
+
 		<?php zp_apply_filter('theme_body_open'); ?>
 	<div class="grid-container">
 	
