@@ -37,7 +37,7 @@ figure {
 h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 1.5rem;
 	font-weight: 500;
-
+	line-height: 1.2;
 }
 
 hr {
@@ -620,7 +620,7 @@ padding-bottom: 10px !important;
 	display: flex;
 }
 
-#search_form div {
+#search #search_form div {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -648,13 +648,35 @@ padding-bottom: 10px !important;
 	color: black;
 }
 
+#search_alt #search_form div {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	max-width: 70rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#search_alt  .tagSuggestContainer {
+	width: 100%;
+}
+
+#search_alt #search_submit {
+margin-left: 20px;
+}
+
+#search_alt #search_input {
+}
+
 #search #search_submit {
 	margin-bottom: 0;
 	margin-right: 0;
 	display: none;
 }
 
-#search .toggle_searchextrashow {
+#search .toggle_searchextrashow, #search_alt .toggle_searchextrashow {
 	display: none;
 }
 

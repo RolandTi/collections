@@ -63,11 +63,14 @@
 			}
 		} else { }
 				?>
-
 </ul>
 		<?php
 		}
 		if (getOption('Allow_search')) {
-				printSearchForm("", "search", "", gettext("Search"));
+			// Need to find a trick to get form reset after previous search. No cumulative wording.
+			// $_zp_current_search->clearSearchWords(); ??
+			printSearchForm("", "search", "", gettext("Search"),NULL,NULL,NULL,false);
 				}	
+				
 		?>		
+

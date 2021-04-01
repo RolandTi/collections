@@ -60,6 +60,9 @@
 							printf(ngettext('%1$u Hit for <em>%2$s</em>', '%1$u Hits for <em>%2$s</em>', $total), $total, html_encode($searchwords));
 							?>
 						</h1>
+						<?php 		if (getOption('Allow_search')) {
+				printSearchForm("", "search_alt", "", gettext("Search"));
+				}	?>
 					</div>
 						<?php
 					} ?>
@@ -174,9 +177,10 @@
 					if ($total == 0) {
 						echo "<p>" . gettext("Sorry, no matches found. Try refining your search.") . "</p>";
 					}
-
-					printPageListWithNav("« " . gettext("prev"), gettext("next") . " »");
 					?>
+					<div class="pagelist-container">
+				<?php printPageListWithNav("← " . gettext("prev"), gettext("next") . " →"); ?>
+					</div>
 
 					</div>
 
