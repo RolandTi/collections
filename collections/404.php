@@ -1,21 +1,22 @@
-<?php
-// force UTF-8 Ø
+<?php if (!defined('WEBPATH')) die(); ?>
+<!doctype html>
+<html<?php printLangAttribute(); ?>>
+<head>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="<?php echo LOCAL_CHARSET; ?>">
+	<?php zp_apply_filter('theme_head'); ?>
+	<?php printHeadTitle(); ?>
+	<?php if (class_exists('RSS')) printRSSHeaderLink('Gallery', gettext('Gallery RSS')); ?>
+	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/styles.css" type="text/css" />
+</head>
+<body>
+	<?php zp_apply_filter('theme_body_open'); ?>
+			<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
 
-if (!defined('WEBPATH'))
-	die();
-?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="<?php echo LOCAL_CHARSET; ?>">
-		<?php zp_apply_filter('theme_head'); ?>
-		<?php printHeadTitle(); ?>
-		<link rel="stylesheet" href="<?php echo pathurlencode($zenCSS); ?>" type="text/css" />
-		<link rel="stylesheet" href="<?php echo pathurlencode(dirname(dirname($zenCSS))); ?>/common.css" type="text/css" />
-	</head>
-	<body>
-		<?php zp_apply_filter('theme_body_open'); ?>
-		
+
+	<div class="grid-container">
+	
 		<header class="header">
 				<nav class="navbar">
 					<div class="navbar_title_container">
@@ -28,21 +29,17 @@ if (!defined('WEBPATH'))
 				</nav>
 		</header>
 		
-		<div id="main">
-			<div id="gallerytitle">
-				<?php
-				if (getOption('Allow_search')) {
-					printSearchForm();
-				}
-				?>
-				<h2>
-					<span>
-						<?php printHomeLink('', ' | '); printGalleryIndexURL(' | ', getGalleryTitle()); echo gettext("Object not found"); ?>
-				</h2>
-			</div>
-			<div id="padbox">
+		<main class="container main two-cols xl-space">
+				<div></div>
+				
+				<div class="password-form">
 				<?php print404status(isset($album) ? $album : NULL, isset($image) ? $image : NULL, $obj); ?>
-			</div>
-		</div>
-	</body>
+				</div>
+		</main>
+		
+		<footer class="footer">
+<?php include("_footer.php"); ?>
+</footer>
+</div>
+</body>
 </html>
