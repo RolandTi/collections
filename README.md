@@ -42,4 +42,3 @@ Activate it through ZenphotoCMS admin.
 * Handling favorite plugin with multiple sets
 * Choose homepage
 * Finding a way to standardize class for sub-menu with `menu_manager` so it can handle accessible navigation with keyboard.
-* Fixing glitches between Google Recaptcha iframe & macy.js
