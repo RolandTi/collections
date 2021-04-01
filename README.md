@@ -3,9 +3,9 @@
 
 ![Collections' Homepage Screenshot](collections_00.jpg)
 
-Demo with all plugins : [https://archives.rolandtisserand.fr/](https://archives.rolandtisserand.fr/)
+Demo with all plugins : [https://collections.rolandtisserand.fr/](https://collections.rolandtisserand.fr/)
 
-Demo without any plugin : [https://collections.rolandtisserand.fr/](https://collections.rolandtisserand.fr/)
+Demo without any plugin : [https://archives.rolandtisserand.fr/](https://archives.rolandtisserand.fr/)
 
 ## Supported plugins
 * cacheManager
