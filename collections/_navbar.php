@@ -46,6 +46,9 @@
 		// 	printCustomPageURL(gettext("Archive View"), 'archive');
 		// }
 //		echo '</li>';
+		// Favorite Page
+		if (function_exists('printFavoritesURL')) {
+		printFavoritesURL(NULL, '<li>', '</li> <li>', '</li>'); }
 		// Contact Page
 		if (extensionEnabled('contact_form')) {
 		echo '<li>';

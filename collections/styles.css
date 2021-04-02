@@ -1635,6 +1635,7 @@ text-decoration: underline;
 
 .news_template h2,.article_single h1 {
 	margin-bottom: 0;
+	line-height: 1.5;
 }
 
 .article_loop .article_infos {
