@@ -1,6 +1,7 @@
 /* @override 
 	http://localhost/zenphoto_complete/themes/collections/styles.css
-	https://collections.rolandtisserand.fr/themes/collections/styles.css */
+	https://collections.rolandtisserand.fr/themes/collections/styles.css
+	https://collections:8890/themes/collections/styles.css */
 
 /*div, h1, h2, img, ul, li, p, header, aside, section, footer {
 	outline-width: 1px;
@@ -915,6 +916,11 @@ img[src*="imageDefault"] {
 	padding-right: 0;
 }
 
+.pagelist a {
+	display: inline-block;
+	margin-bottom: 1rem;
+}
+
 .pagelist-container {
 	width: 100%;
 	text-align: center;	
@@ -1513,6 +1519,7 @@ transition: box-shadow .15s ease-in-out 0s;
 	border-bottom-style: solid;
 	border-bottom-width: 2px;
 	padding-top: 15px;
+	line-height: 1.3;
 }
 
 .bloc_relat_item img {
@@ -1635,7 +1642,6 @@ text-decoration: underline;
 
 .news_template h2,.article_single h1 {
 	margin-bottom: 0;
-	line-height: 1.5;
 }
 
 .article_loop .article_infos {
@@ -1673,23 +1679,27 @@ text-decoration: underline;
 .news_template ul#categories_list li {
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
+	padding-bottom: 1rem;
+	padding-top: 1rem;
 }
+
+.news_template ul#categories_list li:hover {
+	background-color: #ebebeb;
+	transition: background .2s ease-in-out 0s;
+}
+
 
 .news_template .categories_list_active {
 	font-weight: 500;
-	padding-bottom: 1rem;
-	padding-top: 1rem;
 }
 
 .news_template ul#categories_list li a {
 	display: block;
-	padding-bottom: 1rem;
-	padding-top: 1rem;
 }
 
-.news_template ul#categories_list li a:hover {
+/*.news_template ul#categories_list li a:hover {
 	background-color: #ebebeb;
-}
+}*/
 
 .article_single .bloc-rating, .article_single .bloc-comments {
 	padding-top: 2rem;
@@ -2036,19 +2046,19 @@ left: 30vw;
 
 
 .btn-action {
-  box-shadow: 0 5px 10px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     padding: 18px;
     margin: 6px;
     text-align: center;
     cursor: pointer;
-    transition: 0.2s ease;
     text-decoration: none;
-		border-radius: 5px;
 		font-weight: 500;
+		border-radius: 4px;
+		transition: box-shadow 0.1s ease-in-out 0s, background-color 0.1s ease-in-out 0s;
+		box-shadow: rgba(0, 0, 0, 0.45) 0px 1px 2px 0px,0 0 0 1px rgb(0 0 0 / 9%);
 }
 
 .btn-action:hover {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+box-shadow: 0 0 0 4px rgb(0 0 0 / 15%);
 }
 
 .btn-space{

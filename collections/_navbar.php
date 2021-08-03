@@ -28,7 +28,7 @@
 			echo '</li>'; } 
 		// Top level pages
 		if (function_exists("printPageMenu") && ((getNumPages(true)) > 0)) { 
-		printPageMenu("list-top","","menu-active","","","","1",false); 
+		printPageMenu("list-top","","menu-active-page","","","","1",false); 
 		}
 		// Gallery index
 		echo '<li>';
@@ -46,9 +46,6 @@
 		// 	printCustomPageURL(gettext("Archive View"), 'archive');
 		// }
 //		echo '</li>';
-		// Favorite Page
-		if (function_exists('printFavoritesURL')) {
-		printFavoritesURL(NULL, '<li>', '</li> <li>', '</li>'); }
 		// Contact Page
 		if (extensionEnabled('contact_form')) {
 		echo '<li>';
