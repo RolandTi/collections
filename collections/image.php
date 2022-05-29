@@ -1,21 +1,22 @@
 <?php if (!defined('WEBPATH'))	die(); ?>
 <!doctype html>
 <html lang="fr">
+
 <head>
-	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-	
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
 	<meta charset="<?php echo LOCAL_CHARSET; ?>">
 	<?php zp_apply_filter('theme_head'); ?>
 	<?php printHeadTitle(); ?>
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/styles.css" type="text/css" />
 </head>
+
 <body>
 <?php zp_apply_filter('theme_body_open'); ?>
 	<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
 
 	<div class="grid-container">
+		
 		<header class="header">
 			<nav class="navbar">
 				<div class="navbar_title_container"><a href="<?php echo html_encode(getGalleryIndexURL()); ?>" class="navbar_title">
@@ -83,19 +84,29 @@
 						<?php printImageDesc(); ?>
 						<?php	printTags('links', '', 'taglist', ''); ?>
 				</div>
-				
 				<div class="picture_icons">
 					<?php if (getOption('collections_download')) { ?><a download href="<?php echo html_encode(getFullImageURL()); ?>" title="<?php echo gettext('Download'); ?>"   class="svg_button download" >
 						<svg width="16px" height="25px" viewBox="0 0 16 25">
 							<path fill="#6a6a6a" d="M8,16L0,8l1.4-1.4L7,12.2V0h2v12.2l5.6-5.6L16,8L8,16z M0.5,20.6h15l0-2h-15L0.5,20.6z" />
 						</svg>
 					</a><?php } ?>
-
-				<?php if(function_exists('printAddToFavorites')) {?>
-				<div class="bloc-favs">
-				<?php	#printAddToFavorites($_zp_current_image,"add","remove"); 
-				printAddToFavorites($_zp_current_image); 
-				?></div><?php } ?>				
+				<?php #start function favorite
+				if(function_exists('printAddToFavorites')) {?>
+				<?php
+					#check if favorites_multi is "on"
+					if(getOption('favorites_multi')==1) {
+					#Show favorites_multi form ?>
+					<div class="bloc-multi-favs">
+					<?php printAddToFavorites($_zp_current_image); ?>
+					</div>
+				<?php } #else, show simple favorite
+					else { ?>
+					<div class="bloc-favs">
+					<?php	#printAddToFavorites($_zp_current_image,"add","remove"); 
+					printAddToFavorites($_zp_current_image); ?>
+					</div>
+				<?php } #end else 
+					} #end function Favorites ?>				
 				</div>
 			</div> <!--END picture_detail-->
 				

@@ -87,10 +87,26 @@
 					<div class="album_detail">
 					<div class="album_descr"><?php printTags('links', '', 'taglist', ''); ?></div>
 					
-					<div class="picture_icons">				<?php	if(function_exists('printAddToFavorites')) {?>
-					<div class="bloc-favs"><?php	 printAddToFavorites($_zp_current_album); ?></div>
-					<?php } ?></div>
-				</div>
+					<?php #start function favorite
+					if(function_exists('printAddToFavorites')) {?>
+					<?php
+						#check if favorites_multi is "on"
+						if(getOption('favorites_multi')==1) {
+						#Show favorites_multi form ?>
+						<div class="bloc-multi-favs">
+						<?php printAddToFavorites($_zp_current_album); ?>
+						</div>
+					<?php } #else, show simple favorite
+						else { ?>
+						<div class="picture_icons">
+							<div class="bloc-favs">
+								<?php	#printAddToFavorites($_zp_current_image,"add","remove"); 
+								printAddToFavorites($_zp_current_album); ?>
+							</div>
+						</div><!-- end "picture_icons" -->
+					<?php } #end else 
+						} #end function Favorites ?>
+					</div>
 				
 				<div class="pagelist-container"><?php printPageListWithNav("← " . gettext("prev"), gettext("next") . " →"); ?></div>
 			</div><!-- container galeries -->
