@@ -13,7 +13,7 @@ Demo without any plugin : [https://archives.rolandtisserand.fr/](https://archive
 * class-video
 * comment_form
 * contact_form
-* favoritesHandler (*no Multiple sets in v.1*)
+* favoritesHandler
 * menu_manager (*no submenu see ⤵)
 * openstreetmap
 * rating
@@ -38,6 +38,5 @@ Activate it through ZenphotoCMS admin.
 ## What next ?
 * Dark / Light switcher with cookie.
 * Better accessibility
-* Handling favorite plugin with multiple sets
 * Choose homepage
 * Finding a way to standardize class for sub-menu with `menu_manager` so it can handle accessible navigation with keyboard.
