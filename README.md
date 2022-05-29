@@ -36,7 +36,6 @@ Upload `collections` folder in ZenphotoCMS `/themes/` folder.
 Activate it through ZenphotoCMS admin.
 
 ## What next ?
-* Fix the space in picture URI due to `&dsp=Protected view`
 * Dark / Light switcher with cookie.
 * Better accessibility
 * Handling favorite plugin with multiple sets
