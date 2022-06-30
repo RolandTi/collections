@@ -1214,8 +1214,9 @@ ul.taglist {
 }
 
 .taglist a:hover, .pagelist a:hover {
-	transition: box-shadow .1s ease-out 0s,transform .1s ease-out 0s;
+	transition: box-shadow .1s ease-out 0s,transform .1s ease-out 0s, background-color .1s ease-out 0s;
 	box-shadow: var(--light-only-shadow-hover);
+	background-color: var(--dark-only-color);
 }
 
 .taglist li:first-child > a {
@@ -2006,15 +2007,15 @@ ul.month li a, ul.tags li a {
 	padding-left: 10px;
 	padding-right: 10px;
 	text-decoration: none;
-	border-radius: 5px;
-	border: 1px solid var(--color-second);
-	box-shadow: 0px 1px 5px #fff;
-	transition: box-shadow .3s ease-out 0s,transform .3s ease-out 0s;
+	border-radius: 4px;
+transition: box-shadow .2s ease-out 0s,transform .2s ease-out 0s,background-color .2s ease-out 0s;
+	box-shadow: var(--light-only-shadow);
+	background-color: var(--dark-only-color-2);
 }
 
 ul.month li a:hover, ul.tags li a:hover {
-	box-shadow: 0 1px 5px var(--color-second);
-	transform: translateY(-2px);
+	box-shadow: var(--light-only-shadow-hover);
+	background-color: var(--dark-only-color);
 }
 
 li.year {
@@ -2054,7 +2055,7 @@ li.year {
 	padding-bottom: 1rem;
 	border: none;
 	border-radius: 4px;
-	transition: box-shadow .2s ease-out 0s,transform .2s ease-out 0s;
+transition: box-shadow .2s ease-out 0s,transform .2s ease-out 0s,background-color .2s ease-out 0s;
 	box-shadow: var(--light-only-shadow);
 	width: auto;
 	background-color: var(--dark-only-color-2);
@@ -2066,6 +2067,7 @@ li.year {
 	/*	background-color: #606060;*/
 	box-shadow: var(--light-only-shadow-hover);
 	cursor: pointer;
+	background-color: var(--dark-only-color);
 }
 
 .password-form img {
