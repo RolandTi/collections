@@ -3,30 +3,30 @@
 <html<?php printLangAttribute(); ?>>
 <head>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
 	<meta charset="<?php echo LOCAL_CHARSET; ?>">
 	<?php zp_apply_filter('theme_head'); ?>
 	<?php printHeadTitle(); ?>
 	<?php if (class_exists('RSS')) printRSSHeaderLink('Gallery', gettext('Gallery RSS')); ?>
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/styles.css" type="text/css" />
+	 <script>const colorScheme = localStorage.getItem("color-scheme") || "light-mode";</script>
 </head>
 <body>
 	<?php zp_apply_filter('theme_body_open'); ?>
+	<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
 
 	<div class="grid-container">
 		
 		<header class="header">
-				<nav class="navbar">
-					<div class="navbar_title_container">
-					<a href="<?php echo html_encode(getGalleryIndexURL()); ?>" 
-						class="navbar_title">
-						<?php printGalleryTitle(); ?>
-					</a>
-					</div>
-					<?php include("_navbar.php"); // <ul> with all items ?>
-				</nav>
+			<nav class="navbar">
+				<div class="navbar_title_container">
+				<a href="<?php echo html_encode(getSiteHomeURL()); ?>" 
+					class="navbar_title">
+					<?php printGalleryTitle(); ?>
+				</a>
+				</div>
+				<?php include("_navbar.php"); // <ul> with all items ?>
+			</nav>
 		</header>
 		
 		<main class="main">
@@ -35,9 +35,7 @@
 			</div>
 			
 			<div class="container galeries">
-				<div id="album_masonry">
-
-				
+				<div id="album_masonry">				
 					<?php while (next_album()): ?>
 						<div class="fav_thumb">
 						<figure class="sub_album folder">
@@ -49,26 +47,53 @@
 						</figure>
 					</div>
 					<?php endwhile;
-								while (next_image()): ?>
-								
-					<div class="fav_thumb">
-						<figure class="macy_element">
-							<a href="<?php echo html_encode(getImageURL()); ?>" 
-									title="<?php printBareImageTitle(); ?>">
-							<img 
-							src="<?php echo html_encode(getCustomImageURL(NULL,500,NULL,NULL,NULL,NULL,NULL,false,NULL)); ?>" 
-							alt="<?php echo getBareImageTitle(); ?>" 
-							width="<?php echo getFullWidth(); ?>" 
-							height="<?php echo getFullHeight(); ?>" />
-							</a>
-							
-							<div class="bloc-favs">
-								<?php printAddToFavorites($_zp_current_image, '', gettext('Remove')); ?>
-							</div>
+						while (next_image()):
+						if (isImagePhoto()) { ?>
+						<div class="fav_thumb">
+						<figure>
+							<a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
+						<img 
+						src="<?php echo html_encode(getCustomImageURL(NULL,500,NULL,NULL,NULL,NULL,NULL,false,NULL)); ?>" 
+						alt="<?php echo getBareImageTitle(); ?>" 
+						width="<?php echo getFullWidth(); ?>" 
+						height="<?php echo getFullHeight(); ?>" />
+						</a>
+						<div class="bloc-favs">
+							<?php printAddToFavorites($_zp_current_image, '', gettext('Remove')); ?>
+						</div>
+						<?php if (getOption('col_albdesc')) {
+						echo '<figcaption>';
+						echo '<strong>';
+						echo printBareImageTitle();
+						echo '</strong>';
+						echo printBareImageDesc();
+						echo '</figcaption>';
+						} ?>
 						</figure>
-					</div>
-					<?php endwhile; ?>
+						</div>
+					<?php	} 
+					 else { ?>
+						<div class="fav_thumb">
+
+				<figure class="document"><a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
+						<?php printImageThumb(getBareImageTitle()); ?>
+						</a>
+						<div class="bloc-favs">
+							<?php printAddToFavorites($_zp_current_image, '', gettext('Remove')); ?>
+						</div>
+						<?php if (getOption('col_albdesc')) {
+						echo '<figcaption>';
+						echo '<strong>';
+						echo printBareImageTitle();
+						echo '</strong>';
+						echo printBareImageDesc();
+						echo '</figcaption>';
+						} ?>
+					</figure>
+						</div>
+					<?php } endwhile; ?>
 				</div>
+				
 			    <!-- #album_masonry -->
 			<div class="pagelist-container"><?php printPageListWithNav("← " . gettext("prev"), gettext("next") . " →"); ?></div>
 			</div><!-- container galeries -->

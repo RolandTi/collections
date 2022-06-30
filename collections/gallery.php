@@ -13,7 +13,7 @@
 </head>
 <body>
 	<?php zp_apply_filter('theme_body_open'); ?>
-			<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
+	<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
 
 	<div class="grid-container">
 	
@@ -28,23 +28,37 @@
 					<?php include("_navbar.php"); // <ul> with all items ?>
 				</nav>
 		</header>
+		
+		<main class="main album_thumbnail xl-space" id="main-content">
+			
+			<div class="index_gal_desc container">
+				<h1><?php printGalleryTitle(); ?></h1>
+				<?php printGalleryDesc(); ?>
+			</div>
+			
+			<div id="index_gal">
+				<?php while (next_album()): ?>
+				<figure>
+					<a href="<?php echo html_encode(getAlbumURL()); ?>">
+						<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), null, 600, 600, 600, 600, NULL, null, NULL,NULL); ?>
+					</a>
+					<figcaption class="album-title"><?php printAlbumTitle(); ?></figcaption>
+				</figure>
+				<?php endwhile; ?>
+			</div>
+			
+			<div class="pagelist-container">
+				<?php printPageListWithNav("← " . gettext("prev"), gettext("next") . " →"); ?>
+			</div>
+			
+		</main>
 
-		<main class="container main two-cols xl-space">
-				<div>
-					<h1 class="page_title"><?php echo gettext('Register for this site'); ?></h1>
-				</div>
-				
-				<div class="password-form">
-				<?php printRegistrationForm(); ?>
-				</div>
-		</main>	
+		<footer class="footer">
+			<?php printCodeblock(2); ?>
+			<?php include("_footer.php"); ?>
+		</footer>
+		
+	</div> <!--End grid-container-->
 	
-
-<footer class="footer">
-<?php include("_footer.php"); ?>
-</footer>
-</div>
 </body>
 </html>
-
-

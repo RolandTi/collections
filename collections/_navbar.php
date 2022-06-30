@@ -31,13 +31,16 @@
 		printPageMenu("list-top","","menu-active-page","","","","1",false); 
 		}
 		// Gallery index
-		echo '<li>';
-		if ($_zp_gallery_page == "index.php") {
-			printCustomPageURL(gettext("Gallery"), 'index', '', '','','menu-active');
-			} else {
-			printCustomPageURL(gettext("Gallery"), 'index');
-		}
-		echo '</li>';
+		echo '<li><a href="'.html_encode(getCustomPageURL('gallery')).'">'.gettext("Gallery").'</a></li>';
+		#echo printGalleryIndexURL();
+		#echo getGalleryIndexURL(); gettext("Gallery");
+		#echo '<li>';
+		#if ($_zp_gallery_page == "index.php") {
+			#printCustomPageURL(gettext("Gallery"), 'index', '', '','','menu-active');
+			#} else {
+			#printCustomPageURL(gettext("Gallery"), 'index');
+		#}
+		#echo '</li>';
 		// Archives view
 		// echo '<li>';
 		// if ($_zp_gallery_page == "archive.php") {

@@ -1,4 +1,5 @@
 <ul class="foot-links">
+<li><button class="lightbulb" aria-hidden="true">Toggle mode</button></li>
 <?php echo '<li>';	printCustomPageURL(gettext("Archive View"), "archive"); echo '</li>';
 	?>
 <?php if (extensionEnabled('contact_form')) {
