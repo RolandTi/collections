@@ -98,7 +98,7 @@ class ThemeOptions {
 				gettext('Use custom menu') => array(
 						'key' => 'collections_custommenu',
 						'type' => OPTION_TYPE_CHECKBOX,
-						'desc' => gettext('Check this if you want to use the <em>menu_manager</em> plugin if enabled to build a custom menu instead of the separate standard ones. A standard menu named "zenpage" is created and used automatically.'))
+						'desc' => gettext('Check this if you want to use the <em>menu_manager</em> plugin if enabled to build a custom menu instead of the separate standard ones. A standard menu named "collections" is created and used automatically.'))
 		);
 	}
 
