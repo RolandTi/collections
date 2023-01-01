@@ -30,7 +30,7 @@
 			<div class="picture_container">
 				<?php 
 				# Overlay for nav, ONLY if photo
-				if (isImagePhoto()) {
+				if ($_zp_current_image->isPhoto()) {
 					echo '<div class="overlay_nav_container">';
 					if (hasPrevImage()) { ?><a tabindex="-1" href="<?php echo html_encode(getPrevImageURL()); ?>" class="cursor_prev"></a><?php }
 					if (hasNextImage()) { ?><a tabindex="-1" href="<?php echo html_encode(getNextImageURL()); ?>" class="cursor_next"></a><?php }
@@ -38,7 +38,7 @@
 					echo '</div>';
 				} 
 				# Responsive picture for photo
-					if (isImagePhoto()) { ?>
+					if ($_zp_current_image->isPhoto()) { ?>
 				<div class="img_responsive">
 					<img srcset="<?php echo html_encode(getCustomImageURL(NULL,2200,NULL,NULL,NULL,NULL,NULL,false,NULL)); ?>  2200w,
 									<?php echo html_encode(getCustomImageURL(NULL,1280,NULL,NULL,NULL,NULL,NULL,false,NULL)); ?> 1280w,
@@ -177,16 +177,16 @@
 			<?php include("_footer.php"); ?>
 		</footer>
 	</div>
-	<script src="<?php echo $_zp_themeroot; ?>/js/macy.js"></script>
+<!--	<script src="<?php #echo $_zp_themeroot; ?>/js/macy.js"></script>-->
 	
 
-<script>
+<!--<script>
     masonry.runOnImageLoad(function() {
         masonry.recalculate(true, true);
 
     });
 	
-</script>
+</script>-->
 
 </body>
 </html>

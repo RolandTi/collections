@@ -49,7 +49,7 @@
 					<?php endwhile;
 					} 
 					while (next_image()): 
-					if (isImagePhoto()) { ?>
+					if ($_zp_current_image->isPhoto()) { ?>
 						<figure><a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
 						<img 
 						src="<?php echo html_encode(getCustomImageURL(NULL,500,NULL,NULL,NULL,NULL,NULL,false,NULL)); ?>" 

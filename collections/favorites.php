@@ -48,7 +48,7 @@
 					</div>
 					<?php endwhile;
 						while (next_image()):
-						if (isImagePhoto()) { ?>
+						if ($_zp_current_image->isPhoto()) { ?>
 						<div class="fav_thumb">
 						<figure>
 							<a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
