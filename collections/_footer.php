@@ -41,6 +41,9 @@ echo "</li>";
 			}
 }			}
 			?>
+			<?php printPrivacyPageLink('<li>', '</li>'); ?>
+			<li><?php printZenphotoLink(); ?></li>
+			<?php printCopyrightNotice('<li>', '</li>'); ?>
 			<li>
 				<?php @call_user_func('printLanguageSelector');  ?>
 			</li>
