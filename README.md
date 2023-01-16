@@ -6,7 +6,6 @@
 
 🖥 Demo with all plugins : [https://collections.rolandtisserand.fr/](https://collections.rolandtisserand.fr/)
 
-🖥 Demo without any plugin : [https://archives.rolandtisserand.fr/](https://archives.rolandtisserand.fr/)
 
 ## 🧩 Supported plugins
 
