@@ -1,6 +1,7 @@
 /* @override 
 	https://collections.rolandtisserand.fr/themes/collections/styles.css
-	https://collections:8890/themes/collections/styles.css */
+	https://collections:8890/themes/collections/styles.css
+	https://21-collections:8890/themes/collections/styles.css */
 
 /* Ugly debugging tool */
 /*div, h1, h2, img, ul, li, p, header, aside, section, footer {
@@ -269,6 +270,10 @@ figure.sub_album img, #index_gal figure img {
 	border: 1px solid var(--color-background);
 	display: block;
 	margin-bottom: 1rem;
+	/* Fixes to center thumbnails */
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	object-position: 50% 50%;	
 }
 
 .lightbulb {

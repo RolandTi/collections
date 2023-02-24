@@ -40,7 +40,7 @@
 				<?php while (next_album()): ?>
 				<figure>
 					<a href="<?php echo html_encode(getAlbumURL()); ?>">
-						<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), null, 600, 600, 600, 600, NULL, null, NULL,NULL); ?>
+						<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), 900, NULL, NULL, NULL, NULL, NULL, null, NULL,NULL); ?>
 					</a>
 					<figcaption class="album-title"><?php printAlbumTitle(); ?></figcaption>
 				</figure>
