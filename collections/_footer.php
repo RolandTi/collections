@@ -45,7 +45,7 @@ echo "</li>";
 			<li><?php printZenphotoLink(); ?></li>
 			<?php printCopyrightNotice('<li>', '</li>'); ?>
 			<li>
-				<?php @call_user_func('printLanguageSelector');  ?>
+				<?php callUserFunction('printLanguageSelector');  ?>
 			</li>
 </ul>
 
