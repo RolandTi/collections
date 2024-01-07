@@ -43,6 +43,7 @@ class ThemeOptions {
 			cacheManager::deleteCacheSizes($me);
 			cacheManager::addDefaultThumbSize();
 			cacheManager::addDefaultSizedImageSize();
+			cacheManager::addCacheSize($me,null, 2200, null, null, null, null, null, true, false);
 			cacheManager::addCacheSize($me,null, 1280, null, null, null, null, null, true, false);
 			cacheManager::addCacheSize($me,null, 640, null, null, null, null, null, true, false);
 			cacheManager::addCacheSize($me,null, 500, null, null, null, null, null, true, false);
