@@ -68,7 +68,8 @@ class ThemeOptions {
 	}
 
 	function getOptionsSupported() {
-		$unpublishedpages = query_full_array("SELECT title,titlelink FROM " . prefix('pages') . " WHERE `show` != 1 ORDER by `sort_order`");
+		global $_zp_db;
+		$unpublishedpages = $_zp_db->queryFullArray("SELECT title,titlelink FROM " . $_zp_db->prefix('pages') . " WHERE `show` != 1 ORDER by `sort_order`");
 		$list = array();
 		foreach ($unpublishedpages as $page) {
 			$list[get_language_string($page['title'])] = $page['titlelink'];
@@ -77,7 +78,7 @@ class ThemeOptions {
 				gettext('Allow search') => array(
 						'key' => 'Allow_search',
 						'type' => OPTION_TYPE_CHECKBOX,
-						'desc' => gettext('Check to enable search form.')),
+						'desc' => gettext("Check to enable search form.")),
 				gettext('Download Button') => array(
 						'key' => 'collections_download',
 						'type' => OPTION_TYPE_CHECKBOX,
@@ -99,7 +100,7 @@ class ThemeOptions {
 				gettext('Use custom menu') => array(
 						'key' => 'collections_custommenu',
 						'type' => OPTION_TYPE_CHECKBOX,
-						'desc' => gettext('Check this if you want to use the <em>menu_manager</em> plugin if enabled to build a custom menu instead of the separate standard ones. A standard menu named "collections" is created and used automatically.'))
+						'desc' => gettext("Check this if you want to use the <em>menu_manager</em> plugin if enabled to build a custom menu instead of the separate standard ones. A standard menu named 'collections' is created and used automatically."))
 		);
 	}
 
