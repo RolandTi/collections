@@ -96,7 +96,6 @@
 
 						<?php # Showing Categories
 									printAllNewsCategories(gettext("All Categories"),false,"categories_list","categories_list_active");
-									printNewsPageListWithNav(gettext('next »'), gettext('« prev'), true, 'pagelist', true);
 						?>
 					</div>
 		</main>

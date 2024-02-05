@@ -1,7 +1,8 @@
 /* @override 
 	https://collections.rolandtisserand.fr/themes/collections/styles.css
 	https://collections:8890/themes/collections/styles.css
-	https://21-collections:8890/themes/collections/styles.css */
+	https://21-collections:8890/themes/collections/styles.css
+	https://collections.local:8890/themes/collections/styles.css */
 
 /* Ugly debugging tool */
 /*div, h1, h2, img, ul, li, p, header, aside, section, footer {
@@ -380,7 +381,7 @@ figure.sub_album img, #index_gal figure img {
 
 /* @end */
 
-/* @group global */
+/* @group Global */
 
 a:active, a:hover, .imagetitle {
 	color: black;
@@ -436,7 +437,7 @@ a:active, a:hover, .imagetitle {
 
 /* @end */
 
-/* @group navbar */
+/* @group Navbar */
 
 .navbar {
 	width: 100%;
@@ -709,6 +710,7 @@ ul.nav-links-sub a {
 	border: none;
 	cursor: pointer;
 	color: transparent;
+	font-size: 16px;
 }
 
 #search #search_input:focus {
@@ -1389,7 +1391,7 @@ div.textobject {
 
 /* @end */
 
-/* @group Blocks */
+/* @group Blocks / Plugins */
 
 .media_supp_content section {
 	padding: 2rem;
@@ -1476,6 +1478,11 @@ div.comment {
 	margin-bottom: 2rem;
 }
 
+.bloc-comments a {
+	text-decoration: underline;
+	/* Fix for displaying somes links. */
+}
+
 section.bloc-rating form {
 	display: flex;
 }
@@ -1491,6 +1498,11 @@ section.bloc-rating .vote {
 	flex-grow: 1;
 	align-self: center;
 	padding-left: 2rem;
+}
+
+section.bloc-osm:not(:has(#osm_map)) {
+	/* Hide the osm section if there is now data */
+	display: none;
 }
 
 .bloc-rating-content {
@@ -1566,6 +1578,11 @@ input#comment_dataconfirmation {
 
 #imagemetadata_data tr {
 	border-bottom: 1px solid var(--color-second);
+}
+
+.media_supp:not(:has(section)) {
+	/* Hide aside element if no plugin/data is active/displayed */
+	display: none;
 }
 
 .media_supp, .bloc_relat_item {
@@ -1916,6 +1933,10 @@ ul.foot-links li {
 	padding-top: 1rem;
 	padding-left: 1rem;
 	padding-right: 1rem;
+}
+
+ul.foot-links {
+	padding: 0;
 }
 
 @media (min-width:700px) {
