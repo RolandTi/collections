@@ -1,3 +1,11 @@
+		<header class="header">
+				<nav class="navbar">
+					<div class="navbar_title_container">
+					<a href="<?php echo html_encode(getSiteHomeURL()); ?>" 
+						class="navbar_title">
+						<?php printGalleryTitle(); ?>
+					</a>
+					</div>
 <?php
 	// Load custom menu
 	if (function_exists('printCustomMenu') && getOption('collections_custommenu')) {
@@ -76,4 +84,5 @@
 				}	
 				
 		?>		
-
+				</nav>
+		</header>

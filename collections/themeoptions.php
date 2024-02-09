@@ -34,6 +34,7 @@ class ThemeOptions {
 		setThemeOptionDefault('col_albdesc', false);		
 		setThemeOptionDefault('collections_custommenu', false);
 		setThemeOptionDefault('collections_homepage', '');
+		setThemeOptionDefault('collections_sidebar', false);
 		if (extensionEnabled('zenpage')) {
 			setThemeOption('custom_index_page', 'gallery', NULL, 'collections', false);
 		} else {
@@ -75,6 +76,10 @@ class ThemeOptions {
 			$list[get_language_string($page['title'])] = $page['titlelink'];
 		}
 		return array(
+				gettext('Show sidebar') => array(
+						'key' => 'collections_sidebar',
+						'type' => OPTION_TYPE_CHECKBOX,
+						'desc' => gettext("Check to enable the sidebar ( & hide the topbar)")),
 				gettext('Allow search') => array(
 						'key' => 'Allow_search',
 						'type' => OPTION_TYPE_CHECKBOX,
