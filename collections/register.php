@@ -2,7 +2,7 @@
 <!doctype html>
 <html<?php printLangAttribute(); ?>>
 <head>
-	<?php include("_header.php"); ?>
+	<?php include("_inc/inc-header.php"); ?>
 </head>
 <body>
 	<?php zp_apply_filter('theme_body_open'); ?>
@@ -18,7 +18,7 @@
 						<?php printGalleryTitle(); ?>
 					</a>
 					</div>
-					<?php include("_navbar.php"); // <ul> with all items ?>
+					<?php include("_inc/inc-navbar.php"); // <ul> with all items ?>
 				</nav>
 		</header>
 
@@ -34,7 +34,7 @@
 	
 
 <footer class="footer">
-<?php include("_footer.php"); ?>
+<?php include("_inc/inc-footer.php"); ?>
 </footer>
 </div>
 </body>

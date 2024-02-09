@@ -2,7 +2,7 @@
 <!doctype html>
 <html<?php printLangAttribute(); ?>>
 <head>
-	<?php include("_header.php"); ?>
+	<?php include("_inc/inc-header.php"); ?>
 </head>
 <body>
 	<?php zp_apply_filter('theme_body_open'); ?>
@@ -14,11 +14,11 @@
 			<nav class="navbar">
 				<div class="navbar_title_container"><a href="<?php echo html_encode(getSiteHomeURL()); ?>" class="navbar_title">
 					<?php printGalleryTitle(); ?></a><span class="breadcrumb"><?php if (extensionEnabled('zenpage')) { if (checkForPage(getOption('collections_homepage'))) { echo '<a href="'.html_encode(getCustomPageURL('gallery')).'">'.gettext("Gallery").'</a>';} else {}} else {} printParentBreadcrumb('','',''); printAlbumBreadcrumb('', '');?></span></div>
-				<?php include("_navbar.php"); // <ul> with all items ?>
+				<?php include("_inc/inc-navbar.php"); // <ul> with all items ?>
 			</nav>
 		</header>
 		
-		<main class="main">
+		<main class="main album_thumbnail">
 			
 			<div class="container album_head">
 				<h1><?php printAlbumTitle(); ?></h1>
@@ -27,23 +27,27 @@
 				<?php } else {} ?>
 			</div>
 			
+				<?php 
+					if (isAlbumPage(true)) 
+					{ ?>
+			<section id="index_gal">
+						<?php while (next_album()): ?>
+						<figure>
+							<div class="album_thumb_container">
+								<a href="<?php echo html_encode(getAlbumURL()); ?>"><?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), 900, NULL, NULL, NULL, NULL, NULL, null, NULL,NULL); ?></a>
+							</div>
+
+							<figcaption class="album-title"><?php printAlbumTitle(); ?></figcaption>
+						</figure>
+				<?php endwhile; ?>
+			</section>
+				<?php }  ?>
 			<div class="container galeries">
 				<div id="album_masonry">
-					<?php 
-						if (isAlbumPage(true)) 
-						{
-							while (next_album()): ?>
-							<figure class="sub_album">
-								<a href="<?php echo html_encode(getAlbumURL()); ?>">
-									<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), 900, NULL, NULL, NULL, NULL, NULL, null, NULL,NULL); ?>
-								<figcaption class="album-title"><?php printAlbumTitle(); ?></figcaption>
-								</a>
-							</figure>
-					<?php endwhile;
-					} 
+					<?php
 					while (next_image()): 
 					if ($_zp_current_image->isPhoto()) { ?>
-						<figure><a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
+						<figure class="js-item"><a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
 						<img 
 						src="<?php echo html_encode(getCustomImageURL(NULL,500,NULL,NULL,NULL,NULL,NULL,false,NULL)); ?>" 
 						alt="<?php echo getBareImageTitle(); ?>" 
@@ -76,6 +80,16 @@
 				<?php	}  
 						endwhile; ?>
 				</div>
+				<script src="<?php echo $_zp_themeroot; ?>/js/shuffle.js?v=610"></script>
+				<script>
+				const Shuffle = window.Shuffle;
+				const element = document.getElementById('album_masonry');
+				const shuffleInstance = new Shuffle(element, {
+					itemSelector: '.js-item'
+					// could also be a selector: '.js-shuffle-sizer'
+					// https://vestride.github.io/Shuffle/docs/filters
+				});
+				</script>
 			    <!-- #album_masonry -->
 					<div class="album_detail">
 					<div class="album_descr"><?php printTags('links', '', 'taglist', ''); ?></div>
@@ -147,7 +161,7 @@
 			</aside> <!--END media_supp-->
 		</main>
 		
-		<footer class="footer"><?php include("macy.php"); ?><?php include("_footer.php"); ?></footer>
+		<footer class="footer"><?php #include("macy.php"); ?><?php include("_inc/inc-footer.php"); ?></footer>
 	</div>
 </body>
 </html>

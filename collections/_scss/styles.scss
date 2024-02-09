@@ -1023,7 +1023,7 @@ img[src*="imageDefault"] {
 
 /* @group Galeries */
 
-.thumb_container {
+.album_thumb_container {
 	/* Class contenant la vignette pour l'effet de débordement */
 	border-radius: 10px;
 	overflow: hidden;
@@ -1031,8 +1031,7 @@ img[src*="imageDefault"] {
 	box-shadow: 0 1px 2px 0  rgba(60,64,67,0.2) ,0 2px 6px 2px rgba(60,64,67,0.2);	
 }
 
-.sub_album img, 
-#index_gal figure img {
+.album_thumb_container img {
 	display: block;
 	/* Fixes to center thumbnails */
 	aspect-ratio: 1 / 1;

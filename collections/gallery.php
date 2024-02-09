@@ -2,7 +2,7 @@
 <!doctype html>
 <html<?php printLangAttribute(); ?>>
 <head>
-	<?php include("_header.php"); ?>
+	<?php include("_inc/inc-header.php"); ?>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 						<?php printGalleryTitle(); ?>
 					</a>
 					</div>
-					<?php include("_navbar.php"); // <ul> with all items ?>
+					<?php include("_inc/inc-navbar.php"); // <ul> with all items ?>
 				</nav>
 		</header>
 		
@@ -30,16 +30,18 @@
 				<?php printGalleryDesc(); ?>
 			</div>
 			
-			<div id="index_gal">
+			<section id="index_gal">
 				<?php while (next_album()): ?>
 				<figure>
-					<a href="<?php echo html_encode(getAlbumURL()); ?>">
-						<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), 900, NULL, NULL, NULL, NULL, NULL, null, NULL,NULL); ?>
-					</a>
+					<div class="album_thumb_container">
+						<a href="<?php echo html_encode(getAlbumURL()); ?>">
+							<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), 900, NULL, NULL, NULL, NULL, NULL, null, NULL,NULL); ?>
+						</a>
+					</div>
 					<figcaption class="album-title"><?php printAlbumTitle(); ?></figcaption>
 				</figure>
 				<?php endwhile; ?>
-			</div>
+			</section>
 			
 			<div class="pagelist-container">
 				<?php printPageListWithNav("← " . gettext("prev"), gettext("next") . " →"); ?>
@@ -49,7 +51,7 @@
 
 		<footer class="footer">
 			<?php printCodeblock(2); ?>
-			<?php include("_footer.php"); ?>
+			<?php include("_inc/inc-footer.php"); ?>
 		</footer>
 		
 	</div> <!--End grid-container-->

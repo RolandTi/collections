@@ -44,20 +44,10 @@ echo "</li>";
 			<?php printPrivacyPageLink('<li>', '</li>'); ?>
 			<li><?php printZenphotoLink(); ?></li>
 			<?php printCopyrightNotice('<li>', '</li>'); ?>
-			<li>
-				<?php callUserFunction('printLanguageSelector');  ?>
-			</li>
+			<?php if (function_exists('printLanguageSelector')) { 
+				echo "<li>"; callUserFunction('printLanguageSelector'); echo "</li>";
+				} ?>
 </ul>
 
 <?php zp_apply_filter('theme_body_close'); ?>
 <script src="<?php echo $_zp_themeroot; ?>/js/collection.js"></script>
-<!--				<script>
-const toggleMenu = document.querySelector(".navbar button");
-const menu = document.querySelector(".navbar ul");
-
-toggleMenu.addEventListener("click", function () {
-  const open = JSON.parse(toggleMenu.getAttribute("aria-expanded"));
-  toggleMenu.setAttribute("aria-expanded", !open);
-  menu.hidden = !menu.hidden;
-});
-				</script>-->
