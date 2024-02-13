@@ -1,9 +1,5 @@
-<?php if (!defined('WEBPATH')) die(); ?>
-<!doctype html>
-<html<?php printLangAttribute(); ?>>
-	<head>
 		<?php include("_inc/inc-header.php"); ?>
-	</head>
+
 
 		<?php 
 		if (getOption('collections_sidebar')) {
@@ -22,7 +18,8 @@
 		
 			<?php include '_inc/inc-'.$navbar.'bar.php'; ?>
 			
-			<main class="main album_thumbnail xl-space" id="main-content">
+			<main class="main album_thumbnail xl-space <?=$active_template ?>" id="main-content">
+
 				
 				<div class="index_gal_desc container">
 					<h1><?php printGalleryTitle(); ?></h1>

@@ -48,6 +48,6 @@ echo "</li>";
 				echo "<li>"; callUserFunction('printLanguageSelector'); echo "</li>";
 				} ?>
 </ul>
-
+<?=$active_template ?>
 <?php zp_apply_filter('theme_body_close'); ?>
 <script src="<?php echo $_zp_themeroot; ?>/js/collection.js"></script>

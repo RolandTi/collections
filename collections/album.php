@@ -1,9 +1,5 @@
-<?php if (!defined('WEBPATH')) die(); ?>
-<!doctype html>
-<html<?php printLangAttribute(); ?>>
-<head>
-	<?php include("_inc/inc-header.php"); ?>
-</head>
+		<?php include("_inc/inc-header.php"); ?>
+
 <body>
 	<?php zp_apply_filter('theme_body_open'); ?>
 	<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
@@ -18,7 +14,7 @@
 			</nav>
 		</header>
 		
-		<main class="main album_thumbnail">
+		<main class="main album_thumbnail <?=$active_template ?>">
 			
 			<div class="container album_head">
 				<h1><?php printAlbumTitle(); ?></h1>

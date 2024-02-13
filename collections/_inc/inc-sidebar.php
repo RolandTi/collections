@@ -2,6 +2,12 @@
 <?php
 // force UTF-8 Ø
 
+if (getOption('Allow_search')) {
+	// Need to find a trick to get form reset after previous search. No cumulative wording.
+	// $_zp_current_search->clearSearchWords(); ??
+	printSearchForm("", "sidebar_search", "", gettext("Search"),NULL,NULL,NULL,false);
+		}	
+
 if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 	?>
 	<section>
