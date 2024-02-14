@@ -1,25 +1,25 @@
-<?php if (!defined('WEBPATH'))	die(); ?>
-<!doctype html>
-<html<?php printLangAttribute(); ?>>
-	<head>
 		<?php include("_inc/inc-header.php"); ?>
-	</head>
+
+
+		<?php 
+		if (getOption('collections_sidebar')) {
+			$navbar = "side";
+			}
+		else { 
+			$navbar = "top";
+			}
+		?>
 
 	<body>
-	<?php zp_apply_filter('theme_body_open'); ?>
+		<?php zp_apply_filter('theme_body_open'); ?>
 		<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
 	
-		<div class="grid-container">
+		<div class="grid-container <?=$navbar;?>bar-layout">
+		
+			<?php include '_inc/inc-'.$navbar.'bar.php'; ?>
 			
-			<header class="header">
-				<nav class="navbar">
-					<div class="navbar_title_container"><a href="<?php echo html_encode(getSiteHomeURL()); ?>" class="navbar_title">
-						<?php printGalleryTitle(); ?></a><span class="breadcrumb"><?php if (extensionEnabled('zenpage')) { if (checkForPage(getOption('collections_homepage'))) { echo '<a href="'.html_encode(getCustomPageURL('gallery')).'">'.gettext("Gallery").'</a>';} else {}} else {}printParentBreadcrumb('','',''); printAlbumBreadcrumb('', '');?></span></div>
-					<?php include("_inc/inc-navbar.php"); // <ul> with all items ?>
-				</nav>
-			</header>
+			<main class="main <?=$active_template ?>" id="main-content">
 			
-			<main class="main">
 				<div class="picture_container">
 					<?php 
 					# Overlay for nav, ONLY if photo

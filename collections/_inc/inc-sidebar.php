@@ -3,9 +3,8 @@
 // force UTF-8 Ø
 
 if (getOption('Allow_search')) {
-	// Need to find a trick to get form reset after previous search. No cumulative wording.
-	// $_zp_current_search->clearSearchWords(); ??
-	printSearchForm("", "sidebar_search", "", gettext("Search"),NULL,NULL,NULL,false);
+	echo "<h2>".gettext("Search")."</h2>";
+	printSearchForm("", "sidebar_search", "", "→",NULL,NULL,NULL,false);
 		}	
 
 if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
@@ -145,7 +144,7 @@ if ((function_exists("printUserLogin_out") ) || !zp_loggedin() && function_exist
 				printFavoritesURL(NULL, '<li>', '</li><li>', '</li>');
 			}
 			if (function_exists("printUserLogin_out")) {
-				printUserLogin_out("<li>", "</li>");
+				printUserLogin_out("<li>", "</li>", 0);
 			}
 			?>
 		</ul>
