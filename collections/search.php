@@ -1,28 +1,25 @@
-<?php if (!defined('WEBPATH')) die(); ?>
-<!doctype html>
-<html<?php printLangAttribute(); ?>>
-<head>
-	<?php include("_inc/inc-header.php"); ?>
-</head>
-<body>
-	<?php zp_apply_filter('theme_body_open'); ?>
-			<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
+<?php include("_inc/inc-header.php"); ?>
 
-	<div class="grid-container">
+
+<?php 
+if (getOption('collections_sidebar')) {
+	$navbar = "side";
+	}
+else { 
+	$navbar = "top";
+	}
+?>
+
+	<body>
+		<?php zp_apply_filter('theme_body_open'); ?>
+		<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
 	
-		<header class="header">
-				<nav class="navbar">
-					<div class="navbar_title_container">
-					<a href="<?php echo html_encode(getSiteHomeURL()); ?>" 
-						class="navbar_title">
-						<?php printGalleryTitle(); ?>
-					</a>
-					</div>
-					<?php include("_inc/inc-navbar.php"); // <ul> with all items ?>
-				</nav>
-		</header>
+		<div class="grid-container <?=$navbar;?>bar-layout">
 		
-		<main class="main">
+			<?php include '_inc/inc-'.$navbar.'bar.php'; ?>
+			
+			<main class="<?=$active_template ?>">
+
 					<?php
 					$zenpage = extensionEnabled('zenpage');
 					$numimages = getNumImages();
@@ -127,10 +124,13 @@
 						<?php if (getNumAlbums() != 0) { ?>
 	<?php while (next_album()): ?>
 							<li>
-							<figure class="sub_album"><a href="<?php echo html_encode(getAlbumURL()); ?>" title="<?php echo gettext('View album:'); ?>">
-						<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), null, 600, 600, 600, 600, NULL, null, NULL,NULL); ?>
-						<figcaption class="album-title"><?php printAlbumTitle(); ?></figcaption>
-					</a></figure>
+						<figure>
+							<div class="album_thumb_container">
+								<a href="<?php echo html_encode(getAlbumURL()); ?>"><?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), 900, NULL, NULL, NULL, NULL, NULL, null, NULL,NULL); ?></a>
+							</div>
+
+							<figcaption class="album-title"><?php printAlbumTitle(); ?></figcaption>
+						</figure>
 							</li>
 						<?php endwhile; ?>
 					<?php } ?>

@@ -14,15 +14,7 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 	</section>
 	<?php
 } else {
-	if (ZP_NEWS_ENABLED) {
-		?>
-		<section>
-			<h2><?php echo gettext("News articles"); ?></h2>
-			<?php
-			printAllNewsCategories(gettext("All news"), TRUE, "", "menu-active", true, "submenu", "menu-active");
-			?>
-		</section>
-	<?php } ?>
+?>
 
 	<?php if (function_exists("printAlbumMenu")) { ?>
 		<section>
@@ -47,8 +39,19 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 			?>
 		</section>
 	<?php } ?>
+	
+	<?php if (function_exists("printAllNewsCategories") && ((getNumNews(true)) > 0)) {
+		?>
+		<section>
+			<h2><?php echo gettext("News articles"); ?></h2>
+			<?php
+			printAllNewsCategories(gettext("All news"), false, "", "menu-active", true, "submenu", "menu-active");
+			?>
+		</section>
+	<?php } ?>
+	
 
-	<?php if (ZP_PAGES_ENABLED) { ?>
+	<?php if (function_exists("printPageMenu") && ((getNumPages(true)) > 0)) { ?>
 		<section>
 			<h2><?php echo gettext("Pages"); ?></h2>
 			<?php printPageMenu("list", "", "menu-active", "submenu", "menu-active"); ?>
