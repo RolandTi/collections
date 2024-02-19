@@ -47,21 +47,24 @@
 					<?php
 					while (next_image()): 
 					if ($_zp_current_image->isPhoto()) { ?>
-						<figure class="js-item"><a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
-						<img 
-						src="<?php echo html_encode(getCustomImageURL(NULL,500,NULL,NULL,NULL,NULL,NULL,false,NULL)); ?>" 
-						alt="<?php echo getBareImageTitle(); ?>" 
-						width="<?php echo getFullWidth(); ?>" 
-						height="<?php echo getFullHeight(); ?>" />
-						</a>
-						<?php if (getOption('col_albdesc')) {
-						echo '<figcaption>';
-						echo '<strong>';
-						echo printBareImageTitle();
-						echo '</strong>';
-						echo printBareImageDesc();
-						echo '</figcaption>';
-						} ?>
+						<figure class="js-item"><!--	Class for js suffle -->
+							<div class="image_thumb_container"><!--	Class for hidding oversize hover effect -->
+								<a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
+									<img 
+									src="<?php echo html_encode(getCustomImageURL(NULL,500,NULL,NULL,NULL,NULL,NULL,false,NULL)); ?>" 
+									alt="<?php echo getBareImageTitle(); ?>" 
+									width="<?php echo getFullWidth(); ?>" 
+									height="<?php echo getFullHeight(); ?>" />
+								</a>
+							</div>
+							<?php if (getOption('col_albdesc')) {
+							echo '<figcaption>';
+							echo '<strong>';
+							echo printBareImageTitle();
+							echo '</strong>';
+							echo printBareImageDesc();
+							echo '</figcaption>';
+							} ?>
 						</figure>
 					<?php	} 
 					 else { ?>
@@ -79,15 +82,16 @@
 					</figure>
 				<?php	}  
 						endwhile; ?>
+					<div class="js-sizer"></div>
 				</div>
 				<script src="<?php echo $_zp_themeroot; ?>/js/shuffle.js?v=610"></script>
 				<script>
 				const Shuffle = window.Shuffle;
 				const element = document.getElementById('album_masonry');
 				const shuffleInstance = new Shuffle(element, {
-					itemSelector: '.js-item'
-					// could also be a selector: '.js-shuffle-sizer'
-					// https://vestride.github.io/Shuffle/docs/filters
+					itemSelector: '.js-item',
+					sizer: '.js-sizer'
+					// https://vestride.github.io/Shuffle/docs/
 				});
 				</script>
 			    <!-- #album_masonry -->
@@ -150,7 +154,7 @@
 					if (function_exists('printCommentForm')) {
 						if ($_zp_current_album->getCommentsAllowed() || $_zp_current_album->getCommentCount()) {
 							echo '<section class="bloc-comments">';
-							echo '<h2>Commentaires</h2>';
+							echo '<h2>'.gettext('Comments').'</h2>';
 							printCommentForm();
 							echo '</section>';
 						}
@@ -161,7 +165,7 @@
 			</aside> <!--END media_supp-->
 		</main>
 		
-		<footer class="footer"><?php #include("macy.php"); ?><?php include("_inc/inc-footer.php"); ?></footer>
+		<footer class="footer"><?php include("_inc/inc-footer.php"); ?></footer>
 	</div>
 </body>
 </html>

@@ -52,7 +52,7 @@ else {
 		 } 
 		 		if (function_exists('printCommentForm')) {
 			echo '<section class="bloc-comments">';
-			echo '<h2>Commentaires</h2>';
+			echo '<h2>'.gettext('Comments').'</h2>';
 			printCommentForm();
 			echo '</section>';
 		} ?>

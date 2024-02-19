@@ -956,27 +956,6 @@ a.navbar_title {
 
 /* @end */
 
-/* @group Album */
-
-figure.document img[src*="textDefault"] {
-	background: var(--icon-textDefault);
-	background-size: cover;
-}
-
-img[src*="imageDefault"] {
-	background: var(--icon-default);
-	background-size: 100%;
-}
-
-.galeries figcaption strong {
-	display: block;
-}
-
-.galeries figcaption {
-	margin-top: 1rem;
-}
-
-/* @end */
 
 /* @group Pagination */
 
@@ -1025,7 +1004,11 @@ img[src*="imageDefault"] {
 
 /* @end */
 
-/* @group Galeries */
+/* @group Galeries + Albums */
+
+#album_masonry {
+	position: relative;
+}
 
 .album_thumb_container {
 	/* Class contenant la vignette pour l'effet de débordement */
@@ -1033,6 +1016,11 @@ img[src*="imageDefault"] {
 	overflow: hidden;
 	margin-bottom: 1rem;
 	box-shadow: 0 1px 2px 0  rgba(60,64,67,0.2) ,0 2px 6px 2px rgba(60,64,67,0.2);	
+}
+
+.image_thumb_container {
+	/* Class contenant la vignette pour l'effet de débordement */
+	overflow: hidden;
 }
 
 .album_thumb_container img {
@@ -1049,6 +1037,38 @@ img[src*="imageDefault"] {
 
 .album_thumbnail img, .galeries #album_masonry figure, .search_images_bloc figure {
 	transition: all .3s ease-in-out;
+}
+
+/* Dynamic layout for column masonry */
+#album_masonry figure {
+	position: relative;
+	float: left;
+	min-height: 1px;
+	width: 100%;
+	padding-left: 4px;
+	padding-right: 4px;
+	  /* Space between tiles */
+	margin-top: 8px;
+}
+
+@media (min-width:700px) {
+	#album_masonry figure {
+  width: 50%;
+	}	
+}
+
+@media (min-width:1280px) {
+	#album_masonry figure {
+  width: 33.33%;
+	padding-left: 8px;
+	padding-right: 8px;
+	margin-top: 16px;	}	
+}
+
+@media (min-width:1800px) {
+	#album_masonry figure {
+  width: 25%;
+	}		
 }
 
 .galeries #album_masonry figure:hover, .search_images_bloc figure:hover {
@@ -1088,6 +1108,24 @@ img[alt*="protected"] {
 
 .album_head {
 	margin-bottom: 2rem;
+}
+
+figure.document img[src*="textDefault"] {
+	background: var(--icon-textDefault);
+	background-size: cover;
+}
+
+img[src*="imageDefault"] {
+	background: var(--icon-default);
+	background-size: 100%;
+}
+
+.galeries figcaption strong {
+	display: block;
+}
+
+.galeries figcaption {
+	margin-top: 1rem;
 }
 
 @media (min-width:700px) {
@@ -2309,5 +2347,22 @@ flex-direction: column;
 	}
 }
 
+
+/* @end */
+
+/* @group Javascript configuration */
+
+.js-sizer {
+ position: relative;
+  float: left;
+  min-height: 1px;
+  width: 25%;
+  padding-left: 4px;
+  padding-right: 4px;
+
+  /* Space between tiles */
+  margin-top: 8px;
+width: 8.33333%;
+}
 
 /* @end */

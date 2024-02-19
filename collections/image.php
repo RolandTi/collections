@@ -130,7 +130,7 @@
 						}
 						if (getImageMetaData() && (getOption('collections_metas'))) {
 							echo '<section class="bloc-metadata">';
-							echo '<h2>Infos</h2>';
+								echo '<h2>'.gettext('Info').'</h2>';
 							printImageMetadata('',false,'imagemetadata');
 							echo '</section>';
 					 } 
@@ -144,7 +144,7 @@
 						if (function_exists('printCommentForm')) {
 							if ($_zp_current_image->getCommentsAllowed() || $_zp_current_image->getCommentCount()) {
 								echo '<section class="bloc-comments">';
-								echo '<h2>Commentaires</h2>';
+								echo '<h2>'.gettext('Comments').'</h2>';
 								printCommentForm();
 								echo '</section>';
 							}
