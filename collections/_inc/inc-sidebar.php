@@ -16,6 +16,12 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 } else {
 ?>
 
+		<section>
+			<a href="<?php echo html_encode(getSiteHomeURL()); ?>">
+				<?php printGalleryTitle(); ?>
+			</a>
+		</section>
+
 	<?php if (function_exists("printAlbumMenu")) { ?>
 		<section>
 		<?php if (ZP_NEWS_ENABLED || ZP_PAGES_ENABLED) {

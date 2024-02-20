@@ -5,6 +5,7 @@
 						class="navbar_title">
 						<?php printGalleryTitle(); ?>
 					</a>
+					<span class="breadcrumb"><?php if (extensionEnabled('zenpage')) { if (checkForPage(getOption('collections_homepage'))) { echo '<a href="'.html_encode(getCustomPageURL('gallery')).'">'.gettext("Gallery").'</a>';} else {}} else {} printParentBreadcrumb('','',''); printAlbumBreadcrumb('', '');?></span>
 					</div>
 <?php
 	// Load custom menu

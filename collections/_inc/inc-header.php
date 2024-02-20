@@ -43,6 +43,14 @@
 	}
 
 ?>
+<?php 
+	if (getOption('collections_sidebar')) {
+		$navbar = "side";
+		}
+	else { 
+		$navbar = "top";
+		}
+?>
 <!doctype html>
 <html<?php printLangAttribute(); ?>>
 	<head>

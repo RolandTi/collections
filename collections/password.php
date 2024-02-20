@@ -1,15 +1,4 @@
 <?php include("_inc/inc-header.php"); ?>
-
-
-<?php 
-if (getOption('collections_sidebar')) {
-	$navbar = "side";
-	}
-else { 
-	$navbar = "top";
-	}
-?>
-
 	<body>
 		<?php zp_apply_filter('theme_body_open'); ?>
 		<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>

@@ -17,14 +17,14 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url("fonts/InterVariable.woff2") format("woff2");
+  src: url("fonts/InterVariable.woff2?=v4") format("woff2");
 }
 @font-face {
   font-family: InterVariable;
   font-style: italic;
   font-weight: 100 900;
   font-display: swap;
-  src: url("fonts/InterVariable-Italic.woff2") format("woff2");
+  src: url("fonts/InterVariable-Italic.woff2?=v4") format("woff2");
 }
 
 :root {
@@ -105,7 +105,6 @@ a {
 	background: transparent;
 	color: #000;
 	color: var(--color-default);
-	text-decoration: none;
 }
 
 a:active, a:hover {
@@ -199,9 +198,11 @@ body {
 
 .topbar-layout {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-areas: "header"
+						"main"
+						"footer";
+	grid-template-columns: 1fr;
 	grid-template-rows: auto 1fr auto;
-	grid-template-areas: "header header header header" "main main main main" "footer footer footer footer";
 }
 
 @media (min-width:700px) {
@@ -246,14 +247,6 @@ body {
 	justify-content: center; /* alignement vertical */
 }
 
-.container {
-	margin: 0 auto;
-	/*	max-width: 1800px;*/
-	padding-left: 2rem;
-	padding-right: 2rem;
-	width: 100%;
-}
-
 #index_gal {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -263,6 +256,14 @@ body {
 	max-width: 1700px;
 	padding-left: 2rem;
 	padding-right: 2rem;
+}
+
+.container {
+	margin: 0 auto;
+	/*	max-width: 1800px;*/
+	padding-left: 2rem;
+	padding-right: 2rem;
+	width: 100%;
 }
 
 #index_gal figure {
@@ -2366,3 +2367,14 @@ width: 8.33333%;
 }
 
 /* @end */
+
+/* Global fixes */
+/* No links underline */
+#nav-links a,
+.navbar_title_container a,
+#categories_list a,
+.article_loop h2 a,
+.pagelist a,
+#sidebar a {
+	text-decoration: none;
+}
