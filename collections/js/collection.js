@@ -16,30 +16,6 @@ function toggleMenu() {
 	}
 }
 
-/* Activate Submenu */
-//function toggleItem() {
-//	if (this.classList.contains("submenu-active")) {
-//		this.classList.remove("submenu-active");
-//	} else if (menu.querySelector(".submenu-active")) {
-//		menu.querySelector(".submenu-active").classList.remove("submenu-active");
-//		this.classList.add("submenu-active");
-//	} else {
-//		this.classList.add("submenu-active");
-//	}
-//}
-
-/* Close Submenu From Anywhere */
-//function closeSubmenu(e) {
-//	let isClickInside = menu.contains(e.target);
-//	if (!isClickInside && menu.querySelector(".submenu-active")) {
-//		menu.querySelector(".submenu-active").classList.remove("submenu-active");
-//	}
-//	
-//	if (e.key == "Escape") {
-//		menu.querySelector(".submenu-active").classList.remove("submenu-active");
-//	}
-//}
-
 /* Event Listeners */
 toggle_nav.addEventListener("click", toggleMenu, false);
 for (let item of items) {

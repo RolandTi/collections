@@ -19,6 +19,7 @@
   font-display: swap;
   src: url("fonts/InterVariable.woff2?=v4") format("woff2");
 }
+
 @font-face {
   font-family: InterVariable;
   font-style: italic;
@@ -26,6 +27,15 @@
   font-display: swap;
   src: url("fonts/InterVariable-Italic.woff2?=v4") format("woff2");
 }
+
+@font-face {
+  font-family: coll_icons;
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("fonts/coll_icons.woff2?=v4") format("woff2");
+}
+
 
 :root {
 	--color-background: #fff;
@@ -208,11 +218,23 @@ body {
 @media (min-width:700px) {
 	.sidebar-layout {
 		display: grid;
-    grid-template-columns: 35rem 4fr;
+    grid-template-columns: 25rem 4fr;
     grid-template-areas:
 			"sidebar main" 
 			"footer footer ";
 		}
+}
+
+@media (min-width:1280px) {
+	.sidebar-layout {
+    grid-template-columns: 35rem 4fr;
+}
+}
+
+@media (min-width:1800px) {
+	.sidebar-layout {
+    grid-template-columns: 40rem 4fr;
+}
 }
 
 .header {
@@ -1509,17 +1531,13 @@ div.bloc-multi-favs .button {
 	width: 100%;
 }
 
-div.bloc-multi-favs .imagesFavorites_remove .button, div.bloc-multi-favs .albumsFavorites_remove .button {
+div.bloc-multi-favs .imagesFavorites_remove .button,
+div.bloc-multi-favs .albumsFavorites_remove .button {
 	color: red;
 	border: 1px solid #e2e2e2;
-	height: 45px;
-	border-radius: 25px;
+	border-radius: 4px;
 	box-shadow: none;
 	transition: transform .2s ease-out 0s;
-}
-
-div.bloc-multi-favs .imagesFavorites_remove .button:hover, div.bloc-multi-favs .albumsFavorites_remove .button:hover {
-	transform: translateY(-2px);
 }
 
 div.comment {
@@ -1884,15 +1902,16 @@ a.relateditems_thumb {
 		order: 2;
 	}
 	
-		.news-layout {
+	.news-layout {
 		display: grid;
 		grid-template-columns: 1fr 2fr;
-		grid-column-gap: 6%;
+		grid-column-gap: 2.5vw;
+		padding-left: 5vw;
+		padding-right: 5vw;
+		padding-top: 2.5vw;
 		width: 100%;
-		max-width: 1400px;
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: 2rem;
 	}
 }
 
@@ -2044,6 +2063,13 @@ ul.foot-links {
 .page a {
 	text-decoration: underline;
 }
+
+.contact-layout {
+	padding-left: 5vw;
+	padding-right: 5vw;
+	padding-top: 3vw;
+	max-width: 80rem;
+	}
 
 /* @end */
 
@@ -2273,21 +2299,60 @@ input[type='reset'] {
 #sidebar h2 {
 	font-size: 1.4rem;
 	opacity: .5;
-	margin-bottom: 0;
+	margin-bottom: 1ch;
 }
 
-#sidebar li a {
+
+#sidebar h2 a {
+	/* Prevent spacing on Galerie link */
+	padding: unset;
+	padding-left: unset;
+}
+
+
+#sidebar li {
 	padding: .2ch;
-	padding-left: 1ch;
 	padding-right: 1ch;
+	padding-left: 1ch;
 	display: inline-block;
+	width: fit-content;
 	border-radius: 5px;
 	transition: background 100ms ease-in-out 0s;
 }
+
+#sidebar .sidebar_site_title {
+	font-weight: 500;
+	margin-bottom: 1ch;
+	padding-left: unset;
+	font-size: 125%;
+	display: inline-block;
+}
+
 /* > to select only current album & not sub-albums */
-#sidebar li a:hover, #sidebar li.menu-active > a {
+#sidebar li:hover, #sidebar li.menu-active {
 	background-color: rgba(0, 0, 0, 0.15);	
 }
+
+/* Remove li background if there is a sub-menu,
+so the sub-ul isn't impacted */
+#sidebar li:has(ul),
+#sidebar li:hover:has(ul),
+#sidebar li.menu-active:has(ul)  {
+	background-color: unset;
+}
+
+/* Add background color on parent album. 
+Why not styling only .menu-active a ?
+Because Zenphoto is not consistant on menu display,
+active albums 
+ */
+/*#sidebar li:has(ul) > a,
+#sidebar li:hover:has(ul) > a,
+#sidebar li.menu-active:has(ul) > a  {
+	background-color: red;
+}*/
+
+
 
 #sidebar ul {
 list-style-type: none;
@@ -2299,7 +2364,8 @@ flex-direction: column;
 }
 
 #sidebar .submenu {
-	padding-left: 3ch;
+	margin-left: 2ch;
+	margin-bottom: unset;
 }
 
 
@@ -2314,6 +2380,8 @@ flex-direction: column;
 	/* Fix to prevent zooming on smartphones */
 	font-size: 1.6rem;
 	border-radius: .7rem;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 	background-color: #e5e5e5;	
 	border: none;
 	font-weight: 600;
@@ -2347,6 +2415,89 @@ flex-direction: column;
 		/* Fix to prevent zooming on smartphones */
 	}
 }
+
+/* Side bar icons */
+
+.section_printAlbumMenu li a:before {
+  font-family: "coll_icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  width: 1em;
+  margin-right: 1ch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e803';
+  
+}
+
+.section_News h2:before {
+  font-family: "coll_icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 1ch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\f1ea';
+}
+
+.section_Pages li a:before{
+  font-family: "coll_icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 1ch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e801';
+}
+
+.section_Pages li:hover a:before {
+  content: '\f15b';
+	
+}
+
+.section_User h2:before {
+  font-family: "coll_icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 1ch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\f2be';
+}
+
+.section_User .favorite_link:before {
+  font-family: "coll_icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 1ch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e800';	
+}
+
+.section_User .favorite_link:hover:before {
+  content: '\e802';	
+}
+
+
 
 
 /* @end */

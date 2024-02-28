@@ -1,4 +1,12 @@
 <nav id="sidebar">
+
+		<section>
+			<a href="<?php echo html_encode(getSiteHomeURL()); ?>"
+			class="sidebar_site_title">
+				<?php printGalleryTitle(); ?>
+			</a>
+		</section>
+		
 <?php
 // force UTF-8 Ø
 
@@ -16,14 +24,10 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 } else {
 ?>
 
-		<section>
-			<a href="<?php echo html_encode(getSiteHomeURL()); ?>">
-				<?php printGalleryTitle(); ?>
-			</a>
-		</section>
+
 
 	<?php if (function_exists("printAlbumMenu")) { ?>
-		<section>
+		<section class="section_printAlbumMenu">
 		<?php if (ZP_NEWS_ENABLED || ZP_PAGES_ENABLED) {
 				if ($_zp_gallery_page == 'index.php' || $_zp_gallery_page != 'gallery.php') {
 					?>
@@ -41,14 +45,14 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 				<h2><?php echo gettext("Gallery"); ?></h2>
 				<?php
 			}
-			printAlbumMenu("list", false, "", "menu-active", "submenu", "menu-active", '', true);
+			printAlbumMenu("list", false, "", "menu-active", "submenu", "menu-active", gettext("Gallery Index"), true);
 			?>
 		</section>
 	<?php } ?>
 	
 	<?php if (function_exists("printAllNewsCategories") && ((getNumNews(true)) > 0)) {
 		?>
-		<section>
+		<section class="section_News">
 			<h2><?php echo gettext("News articles"); ?></h2>
 			<?php
 			printAllNewsCategories(gettext("All news"), false, "", "menu-active", true, "submenu", "menu-active");
@@ -58,7 +62,7 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 	
 
 	<?php if (function_exists("printPageMenu") && ((getNumPages(true)) > 0)) { ?>
-		<section>
+		<section class="section_Pages">
 			<h2><?php echo gettext("Pages"); ?></h2>
 			<?php printPageMenu("list", "", "menu-active", "submenu", "menu-active"); ?>
 		</section>
@@ -67,7 +71,7 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 } // custom menu check end
 ?>
 
-<section>
+<section class="section_Archive">
 	<h2><?php echo gettext("Archive"); ?></h2>
 	<ul>
 		<?php
@@ -90,22 +94,22 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 <?php
 if (class_exists('RSS') && (getOption('RSS_album_image') || getOption('RSS_articles'))) {
 	?>
-	<section>
+	<section class="section_RSS">
 		<h2><?php echo gettext("RSS"); ?></h2>
 		<ul>
 			<?php
 			if (!is_null($_zp_current_album)) {
-				printRSSLink('Album', '<li>', gettext('Album RSS'), '</li>');
+				printRSSLink('Album', '<li>', gettext('Album RSS'), '</li>', false, 'rss_sidebar');
 				?>
 				<?php
 			}
 			?>
 			<?php
-			printRSSLink('Gallery', '<li>', gettext('Gallery'), '</li>');
+			printRSSLink('Gallery', '<li>', gettext('Gallery'), '</li>', false, 'rss_sidebar');
 			?>
 			<?php
 			if (ZP_NEWS_ENABLED) {
-				printRSSLink("News", "<li>", gettext("News"), '</li>');
+				printRSSLink("News", "<li>", gettext("News"), '</li>', false, 'rss_sidebar');
 			}
 			?>
 		</ul>
@@ -114,26 +118,29 @@ if (class_exists('RSS') && (getOption('RSS_album_image') || getOption('RSS_artic
 }
 ?>
 
+
 <?php
-if (getOption("zenpage_contactpage") && extensionEnabled('contact_form')) {
+if (extensionEnabled('contact_form')) {
 	?>
-	<section>
+	<section class="section_Contact">
 		<ul>
-			<li>
-				<?php
-				if ($_zp_gallery_page != 'contact.php') {
-					printCustomPageURL(gettext('Contact us'), 'contact', '', '');
-				} else {
-					echo gettext("Contact us");
-				}
-				?></li>
+<?php 
+		if ($_zp_gallery_page != 'contact.php') {
+		echo '<li>';
+		printCustomPageURL(gettext('Contact us'), 'contact', '', '');
+		echo '</li>';
+		} else { 
+				echo '<li>';
+echo gettext("Contact us");
+echo '</li>';}  ?>
 		</ul>
 	</section>
 	<?php
 }
 if ((function_exists("printUserLogin_out") ) || !zp_loggedin() && function_exists('printRegistrationForm')) {
 	?>
-	<section>
+	<section class="section_User">
+			<h2><?php echo gettext("User"); ?></h2>
 		<ul>
 			<?php
 			if (!zp_loggedin() && function_exists('printRegisterURL')) {
