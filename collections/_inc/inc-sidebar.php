@@ -76,13 +76,17 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 	<ul>
 		<?php
   if(ZP_NEWS_ENABLED) {
+  // Switch archive title Gallery or Gallery & News if zenpage is active
     $archivelinktext = gettext("Gallery And News");
   } else {
     $archivelinktext = gettext("Gallery");
   }
 		if ($_zp_gallery_page == "archive.php") {
-			echo "<li class='menu-active'>" . $archivelinktext . "</li>";
-		} else {
+			echo "<li class='menu-active'>";
+			printCustomPageURL($archivelinktext, "archive");
+			echo "</li>";
+			}
+		else {
 			echo "<li>";
 			printCustomPageURL($archivelinktext, "archive");
 			echo "</li>";
@@ -125,14 +129,16 @@ if (extensionEnabled('contact_form')) {
 	<section class="section_Contact">
 		<ul>
 <?php 
+	// This loop enable a "menu-active" class to keep conconsistency styling with printAlbumMenu function.
 		if ($_zp_gallery_page != 'contact.php') {
 		echo '<li>';
 		printCustomPageURL(gettext('Contact us'), 'contact', '', '');
 		echo '</li>';
 		} else { 
-				echo '<li>';
-echo gettext("Contact us");
-echo '</li>';}  ?>
+		echo '<li class="menu-active">';
+		printCustomPageURL(gettext('Contact us'), 'contact', '', '');
+		echo '</li>';}  
+?>
 		</ul>
 	</section>
 	<?php
@@ -157,6 +163,7 @@ if ((function_exists("printUserLogin_out") ) || !zp_loggedin() && function_exist
 				<?php
 			}
 			if (function_exists('printFavoritesURL')) {
+			// At the moment there is no way to add an active class on favorite
 				printFavoritesURL(NULL, '<li>', '</li><li>', '</li>');
 			}
 			if (function_exists("printUserLogin_out")) {

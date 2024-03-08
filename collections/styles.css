@@ -291,7 +291,7 @@ body {
 #index_gal figure {
 	display: flex;
 	flex-direction: column;
-	/* Added for zoom effect */
+	/* Overflow added for zoom effect on hover on desktop */
 	overflow: hidden;
 }
 
@@ -835,7 +835,7 @@ span.breadcrumb a:before {
 	
 	.topbar-layout {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr;
+/*		grid-template-columns: 1fr 1fr 1fr 1fr;*/
 		grid-template-rows: auto 1fr auto;
 		grid-template-areas: "header header header header" "main main main main" "footer footer footer footer";
 	}
@@ -1031,6 +1031,7 @@ a.navbar_title {
 
 #album_masonry {
 	position: relative;
+	margin-bottom: 1ch;
 }
 
 .album_thumb_container {
@@ -1054,11 +1055,15 @@ a.navbar_title {
 	object-position: 50% 50%;	
 }
 
-.album_thumbnail img, .galeries #album_masonry img {
+.album_thumbnail .container img, .galeries #album_masonry img {
 	width: 100%;
 }
 
-.album_thumbnail img, .galeries #album_masonry figure, .search_images_bloc figure {
+/* Transition for zoom-in effect on hover */
+.album_thumbnail .container img,
+.album_thumb_container img,
+.galeries #album_masonry figure
+.search_images_bloc figure {
 	transition: all .3s ease-in-out;
 }
 
@@ -1094,11 +1099,9 @@ a.navbar_title {
 	}		
 }
 
-.galeries #album_masonry figure:hover, .search_images_bloc figure:hover {
-	transform: translateY(-3px);
-}
-
-.album_thumbnail img:hover {
+/* Scale effect on hover for albums & images */
+.album_thumbnail .container img:hover,
+.album_thumb_container img:hover {
 	transform: scale(1.1)	
 }
 
@@ -1285,22 +1288,21 @@ ul.taglist {
 	padding-left: 7px;
 	padding-right: 7px;
 	text-decoration: none;
-	transition: box-shadow .1s ease-out 0s,transform .1s ease-out 0s;
+	transition: background-color .2s ease-out 0s;
 	color: var(--color-default);
-	border-radius: 5px;
-	box-shadow: var(--light-only-shadow);
-	background-color: var(--dark-only-color-2);
+	border-radius: 4px;
+	background-color: var(--color-bt-off);
 }
 
 .taglist a:hover, .pagelist a:hover {
-	transition: box-shadow .1s ease-out 0s,transform .1s ease-out 0s, background-color .1s ease-out 0s;
-	box-shadow: var(--light-only-shadow-hover);
-	background-color: var(--dark-only-color);
+	transition: background-color .2s ease-out 0s;
+	background-color: var(--color-bt-on);
 }
 
-.taglist li:first-child > a {
+/* Commented because I don't remember why ?? */
+/*.taglist li:first-child > a {
 	margin-left: -1px;
-}
+}*/
 
 .prev_img, .next_img {
 	-webkit-tap-highlight-color: transparent;
@@ -1399,10 +1401,9 @@ a.svg_button {
 	padding-left: 14px;
 	width: 45px;
 	height: 45px;
-	transition: box-shadow .1s ease-out 0s,transform .1s ease-out 0s;
-	border-radius: 5px;
-	box-shadow: var(--light-only-shadow);
-	background-color: var(--dark-only-color-2);
+	transition:background-color .2s ease-out 0s;
+	border-radius: 4px;
+	background-color: var(--color-bt-off);
 }
 
 a.svg_button.download path {
@@ -1410,8 +1411,7 @@ a.svg_button.download path {
 }
 
 a.svg_button:hover {
-	box-shadow: var(--light-only-shadow-hover);
-	transform: translateY(-2px);
+	background-color: var(--color-bt-on);
 }
 
 .img_responsive {
@@ -1473,31 +1473,37 @@ div.textobject {
 	background-color: var(--dark-only-color);
 }
 
-div.bloc-favs .imagesFavorites_add, div.bloc-favs .albumsFavorites_add {
-	background: var(--icon-fav-add) 7px center no-repeat;
-	background-size: 30px;
-}
-
-div.bloc-favs .imagesFavorites_remove, div.bloc-favs .albumsFavorites_remove {
-	background: url(images/f_rem.svg) 7px center no-repeat;
-	background-size: 30px;
-}
+/* Styling bloc-favs */
 
 div.bloc-favs {
 	display: inline-block;
 	width: 45px;
 	height: 45px;
 	overflow: hidden;
-	border-radius: 5px;
-	transition: box-shadow .1s ease-out 0s,transform .1s ease-out 0s;
-	box-shadow: var(--light-only-shadow);
-	background-color: var(--dark-only-color-2);
+	border-radius: 4px;
 	margin-left: 12px;
 }
 
-div.bloc-favs:hover {
-	box-shadow: var(--light-only-shadow-hover);
-	transform: translateY(-2px);
+div.bloc-favs .imagesFavorites_add,
+div.bloc-favs .albumsFavorites_add,
+div.bloc-favs .imagesFavorites_remove,
+div.bloc-favs .albumsFavorites_remove {
+	background: var(--icon-fav-add) 7px center no-repeat;
+	background-color: var(--color-bt-off);
+	background-size: 30px;
+	transition:background-color .2s ease-out 0s;
+}
+
+div.bloc-favs .imagesFavorites_remove,
+div.bloc-favs .albumsFavorites_remove {
+	background-image: url(images/f_rem.svg);
+}
+
+div.bloc-favs .imagesFavorites_add:hover,
+div.bloc-favs .albumsFavorites_add:hover,
+div.bloc-favs .imagesFavorites_remove:hover,
+div.bloc-favs .albumsFavorites_remove:hover {
+	background-color: var(--color-bt-on);	
 }
 
 div.bloc-favs form {
@@ -1554,6 +1560,7 @@ div.comment {
 
 section.bloc-rating form {
 	display: flex;
+	justify-content: space-between;
 }
 
 section.bloc-rating .star-rating-control {
@@ -1561,12 +1568,6 @@ section.bloc-rating .star-rating-control {
 	transform-origin: top left;
 	align-self: center;
 	padding-right: 2rem;
-}
-
-section.bloc-rating .vote {
-	flex-grow: 1;
-	align-self: center;
-	padding-left: 2rem;
 }
 
 section.bloc-osm:not(:has(#osm_map)) {
@@ -1577,6 +1578,7 @@ section.bloc-osm:not(:has(#osm_map)) {
 .bloc-rating-content {
 	display: flex;
 	flex-direction: column;
+	gap:1ch
 }
 
 section.bloc-rating .star-rating-control::after {
@@ -1738,9 +1740,6 @@ a.relateditems_thumb {
 		gap: 1%;
 	}
 	
-	div.bloc-rating-content {
-		flex-direction: row;
-	}
 	
 	.picture_detail, .media_supp, .bloc_relat_item {
 		margin-bottom: 6rem;
@@ -1814,6 +1813,14 @@ a.relateditems_thumb {
 /* @end */
 
 /* @group news-layout */
+
+.news-layout {
+		display: block;
+		flex-direction: column;
+		padding-top: 2.5vw;
+		width: 95vw;
+		margin: auto;
+}
 
 .singlenews_prev, .singlenews_next {
 	display: inline-block;
@@ -1931,14 +1938,14 @@ a.relateditems_thumb {
 
 /* @group My favorites Page */
 
-div.fav_thumb {
+.fav_thumb {
 	position: relative;
 }
 
-div.fav_thumb div.bloc-favs {
+.fav_thumb div.bloc-favs {
 	position: absolute;
-	top: 5px;
-	left: 5px;
+	top: 10px;
+	left: 10px;
 	border: none;
 	box-shadow: none;
 	transition: opacity .3s ease-in-out 0s;
@@ -1946,7 +1953,7 @@ div.fav_thumb div.bloc-favs {
 	background: none;
 }
 
-div.fav_thumb .bloc-favs:hover {
+.fav_thumb .bloc-favs:hover {
 	box-shadow: none;
 	transform: translateY(-0px);
 	opacity: .5;
@@ -1959,19 +1966,13 @@ div.fav_thumb .bloc-favs:hover {
 ul.pages_search_blocs {
 	padding: 0;
 	list-style-type: none;
+	margin-bottom: 2ch;
 }
 
 ul.pages_search_blocs li {
-	box-shadow: 0 0 3px #434343;
-	padding: 1rem;
-	border-radius: 5px;
-	transition: box-shadow .3s ease-in-out 0s;
-	margin-bottom: 1rem;
+	margin-bottom: 1ch;
 }
 
-ul.pages_search_blocs li:hover {
-	box-shadow: 0 0 5px #434343;
-}
 
 ul.pages_search_blocs h3, ul.pages_search_blocs p {
 	display: inline-block;
@@ -2033,7 +2034,10 @@ ul.foot-links {
 
 /* @group Page (general template page, news, password…) */
 
-.pages-layout article {
+.pages-layout article,
+.password-layout,
+.register-layout,
+.archive-layout {
 	max-width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
@@ -2075,10 +2079,12 @@ ul.foot-links {
 
 /* @group Archive Page */
 
-.archive_grid {
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	column-gap: 3%;
+@media (min-width:700px) {
+	.archive_grid {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		column-gap: 3%;
+	}
 }
 
 ul.archive {
@@ -2296,6 +2302,15 @@ input[type='reset'] {
 	padding: 2ch;
 	font-size: 1.7rem;
 }
+
+#sidebar .sidebar_site_title {
+	font-weight: 500;
+	margin-bottom: 1ch;
+	padding-left: unset;
+	font-size: 125%;
+	display: inline-block;
+}
+
 #sidebar h2 {
 	font-size: 1.4rem;
 	opacity: .5;
@@ -2310,7 +2325,8 @@ input[type='reset'] {
 }
 
 
-#sidebar li {
+
+#sidebar li a {
 	padding: .2ch;
 	padding-right: 1ch;
 	padding-left: 1ch;
@@ -2320,39 +2336,30 @@ input[type='reset'] {
 	transition: background 100ms ease-in-out 0s;
 }
 
-#sidebar .sidebar_site_title {
-	font-weight: 500;
-	margin-bottom: 1ch;
-	padding-left: unset;
-	font-size: 125%;
-	display: inline-block;
+#sidebar li a:hover,
+#sidebar li.menu-active a {
+	background-color: rgba(0, 0, 0, 0.15);	
 }
 
-/* > to select only current album & not sub-albums */
-#sidebar li:hover, #sidebar li.menu-active {
-	background-color: rgba(0, 0, 0, 0.15);	
+#sidebar li.menu-active > .submenu li a {
+	/* Hide background color on child element when parent is active */
+	background-color: unset;
 }
 
 /* Remove li background if there is a sub-menu,
 so the sub-ul isn't impacted */
-#sidebar li:has(ul),
+/*#sidebar li:has(ul),
 #sidebar li:hover:has(ul),
 #sidebar li.menu-active:has(ul)  {
 	background-color: unset;
-}
+}*/
 
-/* Add background color on parent album. 
-Why not styling only .menu-active a ?
-Because Zenphoto is not consistant on menu display,
-active albums 
- */
+/* Add background color on parent album.  */
 /*#sidebar li:has(ul) > a,
 #sidebar li:hover:has(ul) > a,
 #sidebar li.menu-active:has(ul) > a  {
 	background-color: red;
 }*/
-
-
 
 #sidebar ul {
 list-style-type: none;
@@ -2526,6 +2533,7 @@ width: 8.33333%;
 #categories_list a,
 .article_loop h2 a,
 .pagelist a,
-#sidebar a {
+#sidebar a,
+#register_link {
 	text-decoration: none;
 }

@@ -7,7 +7,7 @@
 		
 			<?php include '_inc/inc-'.$navbar.'bar.php'; ?>
 			
-			<main class="<?=$active_template ?>">
+			<main class="pages-layout">
 
 			<article>
 			<h1><?php printPageTitle(); ?></h1>
