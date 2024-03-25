@@ -7,13 +7,7 @@
 					</a>
 					<span class="breadcrumb"><?php if (extensionEnabled('zenpage')) { if (checkForPage(getOption('collections_homepage'))) { echo '<a href="'.html_encode(getCustomPageURL('gallery')).'">'.gettext("Gallery").'</a>';} else {}} else {} printParentBreadcrumb('','',''); printAlbumBreadcrumb('', '');?></span>
 					</div>
-<?php
-	// Load custom menu
-	if (function_exists('printCustomMenu') && getOption('collections_custommenu')) {
-		printCustomMenu('collections', 'list-top', 'nav-links', 'menu-active', 'nav-links-sub', 'menu-active-sub', 2,false);
-	} 
-	//else…
-	else { ?>	
+	<!-- Menu burger : start -->
 	<button class="toggle_nav" aria-expanded="false">
 		<span id="menu-icon-anime">
 		  <span></span>
@@ -21,10 +15,17 @@
 		  <span></span>
 		  <span></span>
 		</span>
-		<!--<span>Menu</span>-->
 	</button>	
+	<!-- Menu burger : end -->
+<?php
+	// Load custom menu
+	if (function_exists('printCustomMenu') && getOption('collections_custommenu')) {
+		printCustomMenu('collections', 'list-top', 'nav-links', 'menu-active', 'nav-links-sub', 'menu-active-sub', 2,false);
+	} 
+	//else…
+	else { ?>	
 	
-	<ul id="nav-links">
+	<ul id="nav-links" class="nav-display">
 		<?php 
 		//News Index
 		if (function_exists("printAllNewsCategories") && ((getNumNews(true)) > 0)) {

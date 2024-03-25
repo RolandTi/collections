@@ -49,4 +49,4 @@ echo "</li>";
 				} ?>
 </ul>
 <?php zp_apply_filter('theme_body_close'); ?>
-<script src="<?php echo $_zp_themeroot; ?>/js/collection.js"></script>
+<script src="<?php echo $_zp_themeroot; ?>/js/collection.js?=v2"></script>

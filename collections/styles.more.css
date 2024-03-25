@@ -1,0 +1,101 @@
+/**
+ * This file contain unused CSS,
+ * I keep them in case in change my mind.
+ */
+ 
+ /* Side bar icons */
+ 
+ @font-face {
+  font-family: coll_icons;
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("fonts/coll_icons.woff2?=v4") format("woff2");
+}
+
+
+.section_printAlbumMenu li a:before {
+  font-family: "coll_icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  width: 1em;
+  margin-right: 1ch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e803';
+  opacity: .5;
+  
+}
+
+.section_News h2:before {
+  font-family: "coll_icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 1ch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\f1ea';
+  opacity: .5;
+}
+
+.section_Pages li a:before{
+  font-family: "coll_icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 1ch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e801';
+  opacity: .5;
+}
+
+.section_Pages li:hover a:before {
+  content: '\f15b';
+  opacity: .5;
+	
+}
+
+.section_User h2:before {
+  font-family: "coll_icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 1ch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\f2be';
+  opacity: .5;
+}
+
+.section_User .favorite_link:before {
+  font-family: "coll_icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 1ch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e800';	
+  opacity: .5;
+}
+
+.section_User .favorite_link:hover:before {
+  content: '\e802';	
+  opacity: .5;
+}

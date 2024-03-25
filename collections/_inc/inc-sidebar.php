@@ -1,4 +1,4 @@
-<nav id="sidebar">
+<nav id="sidebar" class="nav-display">
 
 		<section>
 			<a href="<?php echo html_encode(getSiteHomeURL()); ?>"
@@ -8,8 +8,6 @@
 		</section>
 		
 <?php
-// force UTF-8 Ø
-
 if (getOption('Allow_search')) {
 	echo "<h2>".gettext("Search")."</h2>";
 	printSearchForm("", "sidebar_search", "", "→",NULL,NULL,NULL,false);
@@ -45,7 +43,7 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 				<h2><?php echo gettext("Gallery"); ?></h2>
 				<?php
 			}
-			printAlbumMenu("list", false, "", "menu-active", "submenu", "menu-active", gettext("Gallery Index"), true);
+			printAlbumMenu("list", false, "", "menu-active", "submenu", "menu-active", gettext("Gallery Index"), 0);
 			?>
 		</section>
 	<?php } ?>
@@ -176,3 +174,14 @@ if ((function_exists("printUserLogin_out") ) || !zp_loggedin() && function_exist
 }
 ?>
 </nav>
+
+<!-- Menu burger : start -->
+<button class="toggle_nav" aria-expanded="false">
+	<span id="menu-icon-anime">
+	  <span></span>
+	  <span></span>
+	  <span></span>
+	  <span></span>
+	</span>
+</button>	
+<!-- Menu burger : end -->

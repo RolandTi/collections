@@ -9,20 +9,20 @@
 			
 			<main class="<?=$active_template ?>">
 
-	
-		<div class="archive_grid">
-			<div>
-		<h3><?php echo gettext('Archive View'); ?></h3>
-		<?php printAllDates( 'archive', 'year', 'month', 'desc'); ?>
-		</div>
 		
-		<div>
-		<h3><?php echo gettext('Popular Tags'); ?></h3>
-		<?php printAllTagsAs('list', 'tags'); ?>
-		</div>
-		</div>
-
-		</main>
+				<div class="archive_grid">
+					<div>
+						<h3><?php echo gettext('Archive View'); ?></h3>
+						<?php printAllDates( 'archive', 'year', 'month', 'desc'); ?>
+					</div>
+				
+					<div>
+						<h3><?php echo gettext('Popular Tags'); ?></h3>
+						<?php printAllTagsAs('list', 'tags'); ?>
+					</div>
+				</div>
+	
+			</main>
 
 		<footer class="footer"><?php include("_inc/inc-footer.php"); ?></footer>
 	</div>
