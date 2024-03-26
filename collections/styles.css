@@ -1157,6 +1157,7 @@ img[src*="imageDefault"] {
 
 .galeries figcaption {
 	margin-top: 1rem;
+	word-break: break-all;
 }
 
 @media (min-width:700px) {
@@ -2310,7 +2311,6 @@ input[type='reset'] {
 #sidebar.nav-display {
 	background-color: rgba(0, 0, 0, 0.04);
 	padding: 2ch;
-	font-size: 1.7rem;
 	display: none;
 	z-index: 100;
 }

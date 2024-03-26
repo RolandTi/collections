@@ -9,28 +9,24 @@
 			
 			<main class="main album_thumbnail <?=$active_template ?>" id="main-content">
 			
-			<div class="container album_head">
-				<h1><?php printAlbumTitle(); ?></h1>
-				<?php if (!empty(getAlbumDesc())) { ?>
-			<div class="albumdes"><?php printAlbumDesc(); ?></div>
-				<?php } else {} ?>
-			</div>
+				<div class="container album_head">
+					<h1><?php printAlbumTitle(); ?></h1>
+					<?php if (!empty(getAlbumDesc())) { ?><div class="albumdes"><?php printAlbumDesc(); ?></div><?php } else {} ?>
+				</div><!--End album_head-->
 			
-				<?php 
-					if (isAlbumPage(true)) 
-					{ ?>
-			<section id="index_gal">
+				<!-- Loop for sub-albums -->
+				<?php  if (isAlbumPage(true)) { ?>
+				<section id="index_gal">
 						<?php while (next_album()): ?>
 						<figure>
-							<div class="album_thumb_container">
-								<a href="<?php echo html_encode(getAlbumURL()); ?>"><?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), 900, NULL, NULL, NULL, NULL, NULL, null, NULL,NULL); ?></a>
-							</div>
-
+							<div class="album_thumb_container"><a href="<?php echo html_encode(getAlbumURL()); ?>"><?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), 900, NULL, NULL, NULL, NULL, NULL, null, NULL,NULL); ?></a></div>
 							<figcaption class="album-title"><?php printAlbumTitle(); ?></figcaption>
 						</figure>
-				<?php endwhile; ?>
-			</section>
+						<?php endwhile; ?>
+				</section>
 				<?php }  ?>
+				<!-- end sub-albums loop -->
+				
 			<div class="container galeries">
 				<div id="album_masonry">
 					<?php
@@ -46,44 +42,31 @@
 									height="<?php echo getFullHeight(); ?>" />
 								</a>
 							</div>
-							<?php if (getOption('col_albdesc')) {
-							echo '<figcaption>';
-							echo '<strong>';
-							echo printBareImageTitle();
-							echo '</strong>';
-							echo printBareImageDesc();
-							echo '</figcaption>';
-							} ?>
+							<?php # Display the caption if option enabled
+							 if (getOption('col_albdesc')) { echo '<figcaption><strong>',printBareImageTitle(),'</strong>',printBareImageDesc(),'</figcaption>';} ?>
 						</figure>
 					<?php	} 
 					 else { ?>
-					<figure class="document"><a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
-						<?php printImageThumb(getBareImageTitle()); ?>
-						</a>
-						<?php if (getOption('col_albdesc')) {
-						echo '<figcaption>';
-						echo '<strong>';
-						echo printBareImageTitle();
-						echo '</strong>';
-						echo printBareImageDesc();
-						echo '</figcaption>';
-						} ?>
+					<figure class="document js-item"><a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
+						<?php printImageThumb(getBareImageTitle()); ?></a>
+						<?php  # Display the caption if option enabled
+						if (getOption('col_albdesc')) { echo '<figcaption><strong>',printBareImageTitle(),'</strong>',printBareImageDesc(),'</figcaption>';} ?>
 					</figure>
-				<?php	}  
+					<?php	}  
 						endwhile; ?>
-					<div class="js-sizer"></div>
-				</div>
+					<div class="js-sizer"></div><!-- This div is required by shuffle.js -->
+				</div><!-- end #album_masonry -->
 				<script src="<?php echo $_zp_themeroot; ?>/js/shuffle.js?v=610"></script>
 				<script>
-				const Shuffle = window.Shuffle;
-				const element = document.getElementById('album_masonry');
-				const shuffleInstance = new Shuffle(element, {
-					itemSelector: '.js-item',
-					sizer: '.js-sizer'
-					// https://vestride.github.io/Shuffle/docs/
-				});
+					const Shuffle = window.Shuffle;
+					const element = document.getElementById('album_masonry');
+					const shuffleInstance = new Shuffle(element, {
+						itemSelector: '.js-item',
+						sizer: '.js-sizer'
+						// https://vestride.github.io/Shuffle/docs/
+					});
 				</script>
-			    <!-- #album_masonry -->
+				
 					<div class="album_detail">
 					<div class="album_descr"><?php printTags('links', '', 'taglist', ''); ?></div>
 					

@@ -70,7 +70,7 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 ?>
 
 <section class="section_Archive">
-	<h2><?php echo gettext("Archive"); ?></h2>
+	<h2><?php echo gettext("Misc"); ?></h2>
 	<ul>
 		<?php
   if(ZP_NEWS_ENABLED) {
@@ -80,16 +80,14 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
     $archivelinktext = gettext("Gallery");
   }
 		if ($_zp_gallery_page == "archive.php") {
-			echo "<li class='menu-active'>";
-			printCustomPageURL($archivelinktext, "archive");
-			echo "</li>";
-			}
-		else {
-			echo "<li>";
-			printCustomPageURL($archivelinktext, "archive");
-			echo "</li>";
-		}
+			echo "<li class='menu-active'>",printCustomPageURL($archivelinktext, "archive"),"</li>";}
+		else {echo "<li>",printCustomPageURL($archivelinktext, "archive"),"</li>";}
 		?>
+		
+		<?php if (extensionEnabled('contact_form')) { 
+	// This loop enable a "menu-active" class to keep conconsistency styling with printAlbumMenu function.
+		if ($_zp_gallery_page != 'contact.php') { echo '<li>',printCustomPageURL(gettext('Contact us'), 'contact', '', ''),'</li>';}
+		else { echo '<li class="menu-active">',printCustomPageURL(gettext('Contact us'), 'contact', '', ''),'</li>';} } ?>
 	</ul>
 </section>
 
@@ -120,28 +118,7 @@ if (class_exists('RSS') && (getOption('RSS_album_image') || getOption('RSS_artic
 }
 ?>
 
-
-<?php
-if (extensionEnabled('contact_form')) {
-	?>
-	<section class="section_Contact">
-		<ul>
-<?php 
-	// This loop enable a "menu-active" class to keep conconsistency styling with printAlbumMenu function.
-		if ($_zp_gallery_page != 'contact.php') {
-		echo '<li>';
-		printCustomPageURL(gettext('Contact us'), 'contact', '', '');
-		echo '</li>';
-		} else { 
-		echo '<li class="menu-active">';
-		printCustomPageURL(gettext('Contact us'), 'contact', '', '');
-		echo '</li>';}  
-?>
-		</ul>
-	</section>
-	<?php
-}
-if ((function_exists("printUserLogin_out") ) || !zp_loggedin() && function_exists('printRegistrationForm')) {
+<?php if ((function_exists("printUserLogin_out") ) || !zp_loggedin() && function_exists('printRegistrationForm')) {
 	?>
 	<section class="section_User">
 			<h2><?php echo gettext("User"); ?></h2>
