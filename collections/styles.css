@@ -1,5 +1,7 @@
 /* @override 
-	http://collections02.local:8888/themes/collections2/styles.css */
+	http://collections02.local:8888/themes/collections2/styles.css
+	https://collections.rolandtisserand.fr/themes/collections/styles.css?* */
+	/* override is a tool for CSSEdit / Espresso app */
 
 
 /* Ugly debugging tool */
@@ -167,12 +169,15 @@ td, th {
 }
 
 strong {
-	font-weight: 500;
+	font-weight: 700;
 }
 
 code {
-	font-size: 110%;
+	font-size: 90%;
 	font-family: monospace;
+	background-color: var(--accent-color);
+	padding: .5ch;
+	border-radius: .5rem;
 }
 
 /* @end */
@@ -836,7 +841,8 @@ span.breadcrumb a:before {
 	}
 	
 	.sidebar-layout .index_gal_desc h1 {
-		display: unset;
+		display: block;
+		margin-top: 1rem;
 	}
 	
 	.topbar-layout {
@@ -901,6 +907,10 @@ span.breadcrumb a:before {
 		padding: 0;
 		margin: 0;
 		transform: translateY(0);
+	}
+	
+	.sidebar-layout .index_gal_desc h1 {
+		margin-top: 1rem;
 	}
 }
 
@@ -1697,7 +1707,7 @@ input#comment_dataconfirmation {
 	border-radius: 10px;
 	box-shadow: var(--light-only-shadow);
 	background-color: var(--dark-only-color);
-	transition: box-shadow .1s ease-out 0s,transform .1s ease-out 0s;
+	transition: box-shadow .2s ease-out 0s,transform .2s ease-out 0s;
 }
 
 .bloc_relat_item p {
