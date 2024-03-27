@@ -1,5 +1,5 @@
 const toggle_nav = document.querySelector(".toggle_nav");
-const menu = document.querySelector("#nav-links");
+const menu = document.querySelector(".nav-display");
 const icon_anime = document.querySelector("#menu-icon-anime");
 const items = document.querySelectorAll(".item");
 
@@ -15,30 +15,6 @@ function toggleMenu() {
 		toggle_nav.setAttribute('aria-expanded', 'true');
 	}
 }
-
-/* Activate Submenu */
-//function toggleItem() {
-//	if (this.classList.contains("submenu-active")) {
-//		this.classList.remove("submenu-active");
-//	} else if (menu.querySelector(".submenu-active")) {
-//		menu.querySelector(".submenu-active").classList.remove("submenu-active");
-//		this.classList.add("submenu-active");
-//	} else {
-//		this.classList.add("submenu-active");
-//	}
-//}
-
-/* Close Submenu From Anywhere */
-//function closeSubmenu(e) {
-//	let isClickInside = menu.contains(e.target);
-//	if (!isClickInside && menu.querySelector(".submenu-active")) {
-//		menu.querySelector(".submenu-active").classList.remove("submenu-active");
-//	}
-//	
-//	if (e.key == "Escape") {
-//		menu.querySelector(".submenu-active").classList.remove("submenu-active");
-//	}
-//}
 
 /* Event Listeners */
 toggle_nav.addEventListener("click", toggleMenu, false);

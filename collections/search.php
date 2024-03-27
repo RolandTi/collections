@@ -1,28 +1,14 @@
-<?php if (!defined('WEBPATH')) die(); ?>
-<!doctype html>
-<html<?php printLangAttribute(); ?>>
-<head>
-	<?php include("_header.php"); ?>
-</head>
-<body>
-	<?php zp_apply_filter('theme_body_open'); ?>
-			<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
-
-	<div class="grid-container">
+<?php include("_inc/inc-header.php"); ?>
+	<body>
+		<?php zp_apply_filter('theme_body_open'); ?>
+		<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
 	
-		<header class="header">
-				<nav class="navbar">
-					<div class="navbar_title_container">
-					<a href="<?php echo html_encode(getSiteHomeURL()); ?>" 
-						class="navbar_title">
-						<?php printGalleryTitle(); ?>
-					</a>
-					</div>
-					<?php include("_navbar.php"); // <ul> with all items ?>
-				</nav>
-		</header>
+		<div class="grid-container <?=$navbar;?>bar-layout">
 		
-		<main class="main">
+			<?php include '_inc/inc-'.$navbar.'bar.php'; ?>
+			
+			<main class="<?=$active_template ?>">
+
 					<?php
 					$zenpage = extensionEnabled('zenpage');
 					$numimages = getNumImages();
@@ -122,50 +108,63 @@
 						}
 						?>
 					</h2>
-											<ul class="search_images_bloc">
 
 						<?php if (getNumAlbums() != 0) { ?>
-	<?php while (next_album()): ?>
-							<li>
-							<figure class="sub_album"><a href="<?php echo html_encode(getAlbumURL()); ?>" title="<?php echo gettext('View album:'); ?>">
-						<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), null, 600, 600, 600, 600, NULL, null, NULL,NULL); ?>
-						<figcaption class="album-title"><?php printAlbumTitle(); ?></figcaption>
-					</a></figure>
-							</li>
-						<?php endwhile; ?>
+						<section id="index_gal">
+									<?php while (next_album()): ?>
+									<figure>
+										<div class="album_thumb_container">
+											<a href="<?php echo html_encode(getAlbumURL()); ?>"><?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), 900, NULL, NULL, NULL, NULL, NULL, null, NULL,NULL); ?></a>
+										</div>
+			
+										<figcaption class="album-title"><?php printAlbumTitle(); ?></figcaption>
+									</figure>
+							<?php endwhile; ?>
+						</section>
 					<?php } ?>
+			<div class="container galeries">
+				<div id="album_masonry">
+
 						<?php if (getNumImages() > 0) { ?>
-	<?php
-	$count = '';
-	while (next_image()) {
-		$count++;
-				switch($count) {
-					case 1:
-						$imgclass = ' ui-block-a';
-						break;
-					case 2:
-						$imgclass = ' ui-block-b';
-						break;
-					case 3:
-						$imgclass = ' ui-block-c';
-						break;
-					case 4:
-						$imgclass = ' ui-block-d';
-						$count = ''; // reset to start with a again;
-						break;
-				}
-	?>
-				<li>
-						<a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
-						<figure><img 
-						src="<?php echo html_encode(getCustomImageURL(NULL,500,NULL,NULL,NULL,NULL,NULL,false,NULL)); ?>" 
-						alt="<?php echo getBareImageTitle(); ?>" 
-						width="<?php echo getFullWidth(); ?>" 
-						height="<?php echo getFullHeight(); ?>" /></figure>
+						<?php
+					while (next_image()): 
+					if ($_zp_current_image->isPhoto()) { ?>
+						<figure class="js-item"><!--	Class for js suffle -->
+							<div class="image_thumb_container"><!--	Class for hidding oversize hover effect -->
+								<a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
+									<img 
+									src="<?php echo html_encode(getCustomImageURL(NULL,500,NULL,NULL,NULL,NULL,NULL,false,NULL)); ?>" 
+									alt="<?php echo getBareImageTitle(); ?>" 
+									width="<?php echo getFullWidth(); ?>" 
+									height="<?php echo getFullHeight(); ?>" />
+								</a>
+							</div>
+							<?php # Display the caption if option enabled
+							 if (getOption('col_albdesc')) { echo '<figcaption><strong>',printBareImageTitle(),'</strong>',printBareImageDesc(),'</figcaption>';} ?>
+						</figure>
+					<?php	} 
+					 else { ?>
+					<figure class="document js-item"><a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
+						<?php printImageThumb(getBareImageTitle()); ?>
 						</a>
-				</li>
-	<?php } ?>
-						</ul>
+						<?php # Display the caption if option enabled
+							 if (getOption('col_albdesc')) { echo '<figcaption><strong>',printBareImageTitle(),'</strong>',printBareImageDesc(),'</figcaption>';} ?>
+					</figure>
+				<?php	}  
+						endwhile; ?>											<div class="js-sizer"></div>
+				</div>
+			</div>
+				<script src="<?php echo $_zp_themeroot; ?>/js/shuffle.js?v=610"></script>
+				<script>
+				const Shuffle = window.Shuffle;
+				const element = document.getElementById('album_masonry');
+				const shuffleInstance = new Shuffle(element, {
+					itemSelector: '.js-item',
+					sizer: '.js-sizer'
+					// https://vestride.github.io/Shuffle/docs/
+				});
+				</script>
+			    <!-- #album_masonry -->
 					<?php } ?>
 					<?php
 					if ($total == 0) {
@@ -180,7 +179,7 @@
 
 				</main>
 		
-		<footer class="footer"><?php include("_footer.php"); ?></footer>
+		<footer class="footer"><?php include("_inc/inc-footer.php"); ?></footer>
 	</div>
 </body>
 </html>

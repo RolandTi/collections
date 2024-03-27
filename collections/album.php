@@ -1,82 +1,72 @@
-<?php if (!defined('WEBPATH')) die(); ?>
-<!doctype html>
-<html<?php printLangAttribute(); ?>>
-<head>
-	<?php include("_header.php"); ?>
-</head>
-<body>
-	<?php zp_apply_filter('theme_body_open'); ?>
-	<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
-
-	<div class="grid-container">
+<?php include("_inc/inc-header.php"); ?>
+	<body>
+		<?php zp_apply_filter('theme_body_open'); ?>
+		<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
+	
+		<div class="grid-container <?=$navbar;?>bar-layout">
 		
-		<header class="header">
-			<nav class="navbar">
-				<div class="navbar_title_container"><a href="<?php echo html_encode(getSiteHomeURL()); ?>" class="navbar_title">
-					<?php printGalleryTitle(); ?></a><span class="breadcrumb"><?php if (extensionEnabled('zenpage')) { if (checkForPage(getOption('collections_homepage'))) { echo '<a href="'.html_encode(getCustomPageURL('gallery')).'">'.gettext("Gallery").'</a>';} else {}} else {} printParentBreadcrumb('','',''); printAlbumBreadcrumb('', '');?></span></div>
-				<?php include("_navbar.php"); // <ul> with all items ?>
-			</nav>
-		</header>
-		
-		<main class="main">
+			<?php include '_inc/inc-'.$navbar.'bar.php'; ?>
 			
-			<div class="container album_head">
-				<h1><?php printAlbumTitle(); ?></h1>
-				<?php if (!empty(getAlbumDesc())) { ?>
-			<div class="albumdes"><?php printAlbumDesc(); ?></div>
-				<?php } else {} ?>
-			</div>
+			<main class="main album_thumbnail <?=$active_template ?>" id="main-content">
 			
+				<div class="container album_head">
+					<h1><?php printAlbumTitle(); ?></h1>
+					<?php if (!empty(getAlbumDesc())) { ?><div class="albumdes"><?php printAlbumDesc(); ?></div><?php } else {} ?>
+				</div><!--End album_head-->
+			
+				<!-- Loop for sub-albums -->
+				<?php  if (isAlbumPage(true)) { ?>
+				<section id="index_gal">
+						<?php while (next_album()): ?>
+						<figure>
+							<div class="album_thumb_container"><a href="<?php echo html_encode(getAlbumURL()); ?>"><?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), 900, NULL, NULL, NULL, NULL, NULL, null, NULL,NULL); ?></a></div>
+							<figcaption class="album-title"><?php printAlbumTitle(); ?></figcaption>
+						</figure>
+						<?php endwhile; ?>
+				</section>
+				<?php }  ?>
+				<!-- end sub-albums loop -->
+				
 			<div class="container galeries">
 				<div id="album_masonry">
-					<?php 
-						if (isAlbumPage(true)) 
-						{
-							while (next_album()): ?>
-							<figure class="sub_album">
-								<a href="<?php echo html_encode(getAlbumURL()); ?>">
-									<?php printCustomAlbumThumbImage(getAnnotatedAlbumTitle(), 900, NULL, NULL, NULL, NULL, NULL, null, NULL,NULL); ?>
-								<figcaption class="album-title"><?php printAlbumTitle(); ?></figcaption>
-								</a>
-							</figure>
-					<?php endwhile;
-					} 
+					<?php
 					while (next_image()): 
 					if ($_zp_current_image->isPhoto()) { ?>
-						<figure><a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
-						<img 
-						src="<?php echo html_encode(getCustomImageURL(NULL,500,NULL,NULL,NULL,NULL,NULL,false,NULL)); ?>" 
-						alt="<?php echo getBareImageTitle(); ?>" 
-						width="<?php echo getFullWidth(); ?>" 
-						height="<?php echo getFullHeight(); ?>" />
-						</a>
-						<?php if (getOption('col_albdesc')) {
-						echo '<figcaption>';
-						echo '<strong>';
-						echo printBareImageTitle();
-						echo '</strong>';
-						echo printBareImageDesc();
-						echo '</figcaption>';
-						} ?>
+						<figure class="js-item"><!--	Class for js suffle -->
+							<div class="image_thumb_container"><!--	Class for hidding oversize hover effect -->
+								<a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
+									<img 
+									src="<?php echo html_encode(getCustomImageURL(NULL,500,NULL,NULL,NULL,NULL,NULL,false,NULL)); ?>" 
+									alt="<?php echo getBareImageTitle(); ?>" 
+									width="<?php echo getFullWidth(); ?>" 
+									height="<?php echo getFullHeight(); ?>" />
+								</a>
+							</div>
+							<?php # Display the caption if option enabled
+							 if (getOption('col_albdesc')) { echo '<figcaption><strong>',printBareImageTitle(),'</strong>',printBareImageDesc(),'</figcaption>';} ?>
 						</figure>
 					<?php	} 
 					 else { ?>
-					<figure class="document"><a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
-						<?php printImageThumb(getBareImageTitle()); ?>
-						</a>
-						<?php if (getOption('col_albdesc')) {
-						echo '<figcaption>';
-						echo '<strong>';
-						echo printBareImageTitle();
-						echo '</strong>';
-						echo printBareImageDesc();
-						echo '</figcaption>';
-						} ?>
+					<figure class="document js-item"><a href="<?php echo html_encode(getImageURL()); ?>" title="<?php printBareImageTitle(); ?>">
+						<?php printImageThumb(getBareImageTitle()); ?></a>
+						<?php  # Display the caption if option enabled
+						if (getOption('col_albdesc')) { echo '<figcaption><strong>',printBareImageTitle(),'</strong>',printBareImageDesc(),'</figcaption>';} ?>
 					</figure>
-				<?php	}  
+					<?php	}  
 						endwhile; ?>
-				</div>
-			    <!-- #album_masonry -->
+					<div class="js-sizer"></div><!-- This div is required by shuffle.js -->
+				</div><!-- end #album_masonry -->
+				<script src="<?php echo $_zp_themeroot; ?>/js/shuffle.js?v=610"></script>
+				<script>
+					const Shuffle = window.Shuffle;
+					const element = document.getElementById('album_masonry');
+					const shuffleInstance = new Shuffle(element, {
+						itemSelector: '.js-item',
+						sizer: '.js-sizer'
+						// https://vestride.github.io/Shuffle/docs/
+					});
+				</script>
+				
 					<div class="album_detail">
 					<div class="album_descr"><?php printTags('links', '', 'taglist', ''); ?></div>
 					
@@ -136,7 +126,7 @@
 					if (function_exists('printCommentForm')) {
 						if ($_zp_current_album->getCommentsAllowed() || $_zp_current_album->getCommentCount()) {
 							echo '<section class="bloc-comments">';
-							echo '<h2>Commentaires</h2>';
+							echo '<h2>'.gettext('Comments').'</h2>';
 							printCommentForm();
 							echo '</section>';
 						}
@@ -147,7 +137,7 @@
 			</aside> <!--END media_supp-->
 		</main>
 		
-		<footer class="footer"><?php include("macy.php"); ?><?php include("_footer.php"); ?></footer>
+		<footer class="footer"><?php include("_inc/inc-footer.php"); ?></footer>
 	</div>
 </body>
 </html>

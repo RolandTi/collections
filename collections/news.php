@@ -1,28 +1,14 @@
-<?php if (!defined('WEBPATH')) die(); ?>
-<!doctype html>
-<html<?php printLangAttribute(); ?>>
-<head>
-	<?php include("_header.php"); ?>
-</head>
-<body>
-	<?php zp_apply_filter('theme_body_open'); ?>
-			<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
-
-	<div class="grid-container">
+<?php include("_inc/inc-header.php"); ?>
+	<body>
+		<?php zp_apply_filter('theme_body_open'); ?>
+		<a href="#main-content" tabindex="0" class="skip-to-content">Skip to main content</a>
 	
-		<header class="header">
-				<nav class="navbar">
-					<div class="navbar_title_container">
-					<a href="<?php echo html_encode(getSiteHomeURL()); ?>" 
-						class="navbar_title">
-						<?php printGalleryTitle(); ?>
-					</a>
-					</div>
-					<?php include("_navbar.php"); // <ul> with all items ?>
-				</nav>
-		</header>
+		<div class="grid-container <?=$navbar;?>bar-layout">
+		
+			<?php include '_inc/inc-'.$navbar.'bar.php'; ?>
+			
+			<main class="<?=$active_template ?>">
 
-		<main class="container main two-cols xl-space news_template">
 							<?php // single news article
 						if (is_NewsArticle()) { ?>
 												<div class="article_single">
@@ -55,7 +41,7 @@
 		 } 
 		 		if (function_exists('printCommentForm')) {
 			echo '<section class="bloc-comments">';
-			echo '<h2>Commentaires</h2>';
+			echo '<h2>'.gettext('Comments').'</h2>';
 			printCommentForm();
 			echo '</section>';
 		} ?>
@@ -100,7 +86,7 @@
 					</div>
 		</main>
 
-<footer class="footer"><?php include("_footer.php"); ?></footer>
+<footer class="footer"><?php include("_inc/inc-footer.php"); ?></footer>
 	</div>
 </body>
 </html>
