@@ -4,7 +4,9 @@
 
 ![Collections' Homepage Screenshot](collections_00.jpg)
 
-🖥 Demo with all plugins : [https://collections.rolandtisserand.fr/](https://collections.rolandtisserand.fr/)
+![Collections' Homepage Screenshot with sidebar](collections_02_sidebar.jpg)
+
+🖥 Demo with all plugins active : [https://collections.rolandtisserand.fr/](https://collections.rolandtisserand.fr/)
 
 
 ## 🧩 Supported plugins
@@ -37,7 +39,3 @@
 
 Upload `collections` folder to `/themes/` folder.
 Activate it through admin panel.
-
-## 💡 What next ?
-
-*  🎹 Make sub-menu with `menu_manager` accessible with keyboard navigation.
