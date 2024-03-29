@@ -1,10 +1,13 @@
 /* @override 
 	http://collections02.local:8888/themes/collections2/styles.css
-	https://collections.rolandtisserand.fr/themes/collections/styles.css?* */
-	/* override is a tool for CSSEdit / Espresso app */
+	https://collections.rolandtisserand.fr/themes/collections/styles.css?*
+	http://collections02.local:8888/themes/collections2/styles.css?* */
+
+/* override is a tool for CSSEdit / Espresso app */
 
 
 /* Ugly debugging tool */
+
 /*div, h1, h2, img, ul, li, p, header, aside, section, footer, nav {
 	outline-width: 1px;
 	outline-style: solid;
@@ -532,6 +535,8 @@ a:active, a:hover, .imagetitle {
 	display: flex;
 	align-items: center;
 	cursor: pointer;
+	touch-action: manipulation;
+	user-select: none;
 }
 
 /* Animation */
@@ -1081,8 +1086,9 @@ a.navbar_title {
 /* Transition for zoom-in effect on hover */
 .album_thumbnail .container img,
 .album_thumb_container img,
-.galeries #album_masonry figure
-.search_images_bloc figure {
+.galeries #album_masonry figure,
+.search_images_bloc figure,
+.image_thumb_container img {
 	transition: all .3s ease-in-out;
 }
 
@@ -1120,7 +1126,8 @@ a.navbar_title {
 
 /* Scale effect on hover for albums & images */
 .album_thumbnail .container img:hover,
-.album_thumb_container img:hover {
+.album_thumb_container img:hover,
+.image_thumb_container img:hover {
 	transform: scale(1.1)	
 }
 
@@ -1172,6 +1179,7 @@ img[src*="imageDefault"] {
 .galeries figcaption {
 	margin-top: 1rem;
 	word-break: break-all;
+	padding-bottom: 1ch;
 }
 
 @media (min-width:700px) {
