@@ -2498,6 +2498,40 @@ width: 8.33333%;
 
 /* @end */
 
+/* @group Diary */
+#album_diary img {
+	border-radius: 1rem;
+}
+
+#album_diary img:hover {
+	/* Prevent scale on hover for diary display */
+	transform: scale(1)	
+}
+
+#album_diary figure {
+	margin-bottom: 4ch
+}
+
+#album_diary figcaption {
+	max-width: 70ch;
+	margin: auto;
+	margin-top: 2ch;
+	word-break: break-word;
+}
+
+#album_diary h2 {
+	font-weight: 600;
+}
+
+
+
+@media screen and (min-width:1280px) {
+	#album_diary figcaption {
+	}
+}
+
+/* @end */
+
 /* Global fixes */
 /* No links underline */
 #nav-links a,
