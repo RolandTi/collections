@@ -11,22 +11,17 @@
 if (getOption('Allow_search')) {
 	echo "<h2>".gettext("Search")."</h2>";
 	printSearchForm("", "sidebar_search", "", "→",NULL,NULL,NULL,false);
-		}	
+}	
 
-if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
-	?>
-	<section>
-		<?php printCustomMenu('zenpage', 'list', '', "menu-active", "submenu", "menu-active", 2); ?>
-	</section>
-	<?php
-} else {
-?>
-
-
-
-	<?php if (function_exists("printAlbumMenu")) { ?>
-		<section class="section_printAlbumMenu">
-		<?php if (ZP_NEWS_ENABLED || ZP_PAGES_ENABLED) {
+if (function_exists('printCustomMenu') && getOption('collections_custommenu')) {
+	echo "<section>";
+	printCustomMenu('collections', 'list-top', '', 'menu-active', 'submenu', 'menu-active', 2,false);
+	echo "</section>";
+	} 
+	else {
+		if (function_exists("printAlbumMenu")) { 
+			echo '<section class="section_printAlbumMenu">';
+			if (ZP_NEWS_ENABLED || ZP_PAGES_ENABLED) {
 				if ($_zp_gallery_page == 'index.php' || $_zp_gallery_page != 'gallery.php') {
 					?>
 					<h2>
@@ -39,16 +34,14 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 					<?php
 				}
 			} else {
-				?>
-				<h2><?php echo gettext("Gallery"); ?></h2>
-				<?php
-			}
+			echo "<h2>";
+			echo gettext("Gallery");
+			echo "</h2>";
+						}
 			printAlbumMenu("list", false, "", "menu-active", "submenu", "menu-active", gettext("Gallery Index"), 0);
-			?>
-		</section>
-	<?php } ?>
-	
-	<?php if (function_exists("printAllNewsCategories") && ((getNumNews(true)) > 0)) {
+			echo "</section>";
+		 } 
+		 if (function_exists("printAllNewsCategories") && ((getNumNews(true)) > 0)) {
 		?>
 		<section class="section_News">
 			<h2><?php echo gettext("News articles"); ?></h2>
@@ -56,7 +49,7 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 			printAllNewsCategories(gettext("All news"), false, "", "menu-active", true, "submenu", "menu-active");
 			?>
 		</section>
-	<?php } ?>
+	<?php } // printAllNewsCategories ?>
 	
 
 	<?php if (function_exists("printPageMenu") && ((getNumPages(true)) > 0)) { ?>
@@ -65,8 +58,8 @@ if (function_exists('printCustomMenu') && getOption('zenpage_custommenu')) {
 			<?php printPageMenu("list", "", "menu-active", "submenu", "menu-active"); ?>
 		</section>
 		<?php
-	}
-} // custom menu check end
+	} // printPageMenu
+
 ?>
 
 <section class="section_Archive">
@@ -149,6 +142,7 @@ if (class_exists('RSS') && (getOption('RSS_album_image') || getOption('RSS_artic
 	</section>
 	<?php
 }
+} // custom menu check end
 ?>
 </nav>
 
