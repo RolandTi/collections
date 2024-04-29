@@ -148,7 +148,7 @@
 				<?php #if (function_exists('printRelatedItems')) { ?>
 					<section class="bloc_relat_item ">
 					<div class="bloc_relat_item_content">
-							<?php printRelatedItems(5,'all',null,100,true); ?>
+							<?php printRelatedItems(5,'all',null,null,true); ?>
 					</div>
 				</section>
 				<?php } ?>

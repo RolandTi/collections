@@ -1,12 +1,10 @@
 # Collections, a theme for ZenphotoCMS
 
-**[Collections](https://collections.rolandtisserand.fr/)** is a responsive theme for ZenphotoCMS image gallery and CMS. 
+![Collections' Homepages Screenshots](screenshots/screenshots_01.jpg)
 
-![Collections' Homepage Screenshot](collections_00.jpg)
+**[Collections](https://collections.rolandtisserand.fr/)** is a responsive theme for ZenphotoCMS image gallery and CMS.  🖥 Demo with all plugins active : [https://collections.rolandtisserand.fr/](https://collections.rolandtisserand.fr/)
 
-![Collections' Homepage Screenshot with sidebar](collections_02_sidebar.jpg)
-
-🖥 Demo with all plugins active : [https://collections.rolandtisserand.fr/](https://collections.rolandtisserand.fr/)
+![Collections' Options Screenshots](screenshots/screenshots_02.jpg)
 
 
 ## 🧩 Supported plugins
@@ -18,6 +16,7 @@
 * contact_form
 * favoritesHandler
 * menu_manager (*no submenu see* ⤵)
+* multiple_layouts
 * openstreetmap
 * rating
 * register_user
