@@ -1145,9 +1145,16 @@ img[alt*="protected"] {
 
 .album_head h1 {
 	margin-top: 1.5rem;
-	font-size: 200%;
+	font-size: 150%;
 	text-align: center;
 	line-height: 1.2;
+	padding-right: 3rem;
+	padding-left: 3rem;
+}
+@media (min-width:700px) {
+	.album_head h1 {
+		font-size: 200%;
+	}
 }
 
 .album_head .albumdes {
