@@ -51,7 +51,6 @@
 	--icon-default: url(images/imageDefault.svg) center center #f6f6f6;
 	--icon-protected: url(images/err-passwordprotected.svg) center center no-repeat #f6f6f6;
 	--icon-textDefault: url(images/textDefault.svg) center center #f6f6f6;
-	--icon-lightbulb: url(images/day.svg);
 	--icon-fav-add: url(images/f_add.svg);
 	--icon-textDefault-related: url(images/textDefault.svg);
 	font-optical-sizing: auto;
@@ -77,7 +76,6 @@
 	--icon-default: url(images/imageDefault_night.svg) center center #4c4c4c;
 	--icon-protected: url(images/err-passwordprotected_night.svg) center center no-repeat #4c4c4c;
 	--icon-textDefault: url(images/textDefault_night.svg) center center #4c4c4c;
-	--icon-lightbulb: url(images/night.svg);
 	--icon-fav-add: url(images/f_add_night.svg);
 	--icon-textDefault-related: url(images/textDefault_night.svg);
 }
@@ -101,7 +99,6 @@
 		--icon-default: url(images/imageDefault_night.svg) center center #4c4c4c;
 		--icon-protected: url(images/err-passwordprotected_night.svg) center center no-repeat #4c4c4c;
 		--icon-textDefault: url(images/textDefault_night.svg) center center #4c4c4c;
-		--icon-lightbulb: url(images/night.svg);
 		--icon-fav-add: url(images/f_add_night.svg);
 		--icon-textDefault-related: url(images/textDefault_night.svg);
 	}
@@ -316,18 +313,6 @@ body {
 	max-width: 1700px;
 }
 
-.lightbulb {
-	display: inline-block;
-	background: var(--icon-lightbulb) center center no-repeat;
-	border: var(--color-default) solid 1px;
-	border-radius: 20px;
-	text-indent: -999px;
-	cursor: pointer;
-	background-size: contain;
-	width: 25px;
-	height: 25px;
-	overflow: hidden;
-}
 
 @media (min-width: 700px) {
 	body {
@@ -2545,6 +2530,6 @@ width: 8.33333%;
 .article_loop h2 a,
 .pagelist a,
 #sidebar a,
-#register_link {
+main a#register_link {
 	text-decoration: none;
 }

@@ -61,5 +61,4 @@
 	<?php printHeadTitle(); ?>
 	<?php if (class_exists('RSS')) printRSSHeaderLink('Gallery', gettext('Gallery RSS')); ?>
 	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/styles.css?v=240329" type="text/css" />
-	<script>const colorScheme = localStorage.getItem("color-scheme") || "light-mode";</script>
 	</head>

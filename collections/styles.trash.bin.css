@@ -1,0 +1,45 @@
+/**
+ * This file contain no more used CSS,
+ * I keep them in case in change my mind.
+ */
+ 
+ :root {
+	--icon-lightbulb: url(images/day.svg);
+ }
+
+.dark-mode {
+	--icon-lightbulb: url(images/night.svg);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--icon-lightbulb: url(images/night.svg);
+	}
+}
+
+.lightbulb {
+	display: inline-block;
+	background: var(--icon-lightbulb) center center no-repeat;
+	border: var(--color-default) solid 1px;
+	border-radius: 20px;
+	text-indent: -999px;
+	cursor: pointer;
+	background-size: contain;
+	width: 25px;
+	height: 25px;
+	overflow: hidden;
+}
+
+/**
+* HTML located in inc-footer.php
+* <li><button class="lightbulb" aria-hidden="true">Toggle mode</button></li>
+*/
+
+/**
+* HTML located in inc-header.php in <head>
+<script>const colorScheme = localStorage.getItem("color-scheme") || "light-mode";</script>
+ */
+ 
+ /**
+ * JS is located in js/unused.js
+   */
