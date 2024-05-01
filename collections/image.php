@@ -145,7 +145,6 @@
 				<?php } ?>
 				
 				<?php if (function_exists('printRelatedItems') && !empty(getRelatedItems('all'))) { ?>
-				<?php #if (function_exists('printRelatedItems')) { ?>
 					<section class="bloc_relat_item ">
 					<div class="bloc_relat_item_content">
 							<?php printRelatedItems(5,'all',null,null,true); ?>

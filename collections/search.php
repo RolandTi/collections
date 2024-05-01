@@ -8,6 +8,7 @@
 			<?php include '_inc/inc-'.$navbar.'bar.php'; ?>
 			
 			<main class="<?=$active_template ?>">
+					<div class="album_head container">	
 
 					<?php
 					$zenpage = extensionEnabled('zenpage');
@@ -33,19 +34,19 @@
 						$searchwords .= $searchdate;
 					}
 					if ($total > 0) {
-						?>
-					<div class="album_head container">	
-						<h1 class="page_title">
-							<?php
-							printf(ngettext('%1$u Hit for <em>%2$s</em>', '%1$u Hits for <em>%2$s</em>', $total), $total, html_encode($searchwords));
-							?>
-						</h1>
-						<?php 		if (getOption('Allow_search')) {
-				printSearchForm("", "search_alt", "", gettext("Search"));
-				}	?>
-					</div>
-						<?php
-					} ?>
+						echo '<h1 class="page_title">';
+						printf(ngettext('%1$u Hit for <em>%2$s</em>', '%1$u Hits for <em>%2$s</em>', $total), $total, html_encode($searchwords));
+						echo '</h1>';
+						}
+					else {
+						echo '<h1 class="page_title">' . gettext("Search") . '</h1>';
+					}
+ 					if (getOption('Allow_search')) {
+						printSearchForm("", "search_alt", "", gettext("Search"));
+					}
+					?>
+
+					</div><!--#album_head-->
 					<div class="container search_template">
 					<?php
 					if ($zenpage && $_zp_page == 1) { //test of zenpage searches
