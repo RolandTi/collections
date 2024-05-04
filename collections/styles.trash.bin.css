@@ -11,6 +11,29 @@
 	--icon-lightbulb: url(images/night.svg);
 }
 
+.dark-mode {
+	--color-background: #2f2f2f;
+	--color-bt-off:#575757;
+	--color-bt-on:#666565;
+	--color-default: #e5e5e5;
+	--color-second: #2b2b2e;
+	--color-three: #4b4b4b;
+	--color-four: #d1d1d1;
+	--light-only-color: transparent;
+	--light-only-shadow: 0px 0px 0px #000;
+	--light-only-shadow-hover: 0px 0px 0px #000;
+	--dark-only-color: #3c3c3c;
+	--dark-only-color-2: #4c4c4c;
+	--color-navbar: rgba(47, 47, 47, 0.8);
+	--icon-search: url(images/search_dark.svg);
+	--icon-default: url(images/imageDefault_night.svg) center center #4c4c4c;
+	--icon-protected: url(images/err-passwordprotected_night.svg) center center no-repeat #4c4c4c;
+	--icon-textDefault: url(images/textDefault_night.svg) center center #4c4c4c;
+	--icon-fav-add: url(images/f_add_night.svg);
+	--icon-textDefault-related: url(images/textDefault_night.svg);
+}
+
+
 @media (prefers-color-scheme: dark) {
 	:root {
 		--icon-lightbulb: url(images/night.svg);

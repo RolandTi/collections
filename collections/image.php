@@ -93,7 +93,7 @@
 					</div>
 				</div> <!--END picture_detail-->
 					
-				<?php if(function_exists('printRating') || function_exists('printGoogleMap') ||function_exists('printOpenStreetMap') || (getOption('collections_metas')) ||function_exists('printCommentForm')) {   ?>
+				<?php if(function_exists('printRating') || function_exists('printGoogleMap') || function_exists('printOpenStreetMap') || (getOption('collections_metas')) || function_exists('printCommentForm')) {   ?>
 				<aside class="media_supp xl_hmar">
 					<div class="media_supp_content">
 						<div class="media_supp_content_col">
