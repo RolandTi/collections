@@ -60,5 +60,5 @@
 	<?php zp_apply_filter('theme_head'); ?>
 	<?php printHeadTitle(); ?>
 	<?php if (class_exists('RSS')) printRSSHeaderLink('Gallery', gettext('Gallery RSS')); ?>
-	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/styles.css?v=240505" type="text/css" />
+	<link rel="stylesheet" href="<?php echo $_zp_themeroot; ?>/styles.css?v=240506" type="text/css" />
 	</head>
