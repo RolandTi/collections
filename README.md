@@ -29,7 +29,7 @@
 ## 🚀🚀 Improvements & options
 
 * Responsive images using `srcset`
-* Dark / Light theme with `prefers-color-scheme` + switch with a 🍪
+* Dark / Light theme with `prefers-color-scheme`
 * Accessible & responsive navbar
 * SVG icons hack with CSS (empty, protected, text... will add more)
 * Show / Hide title & description for Album view 
