@@ -10,20 +10,23 @@
 			<main class="pages-layout">
 
 			<article>
-			<figure aria-hidden="true">
-			<?php
-			if (function_exists('printSizedFeaturedImage')) {
-				printSizedFeaturedImage(null,'', null, 1200, null, null, null, null, null, 'featuredimage_singlepage', null, false, null, true);} ?>
-			</figure>
+				
+				
+				<?php
+				if (function_exists('printSizedFeaturedImage')) {
+					echo '<figure aria-hidden="true">';
+					printSizedFeaturedImage(null,'', null, 1200, null, null, null, null, null, 'featuredimage_singlepage', null, false, null, true);
+					echo '</figure>';
+					} 
+				?>
 			
-			<h1><?php printPageTitle(); ?></h1>
+				<h1><?php printPageTitle(); ?></h1>
 			
-			<?php
+				<?php
 					printPageContent();
 					printCodeblock(1);
-					printTags('links', '', 'taglist', ' ');
-
-					?>
+					printTags('links', '', 'taglist', ' '); ?>
+					
 			</article>
 		
 				<aside class="media_supp xl_hmar">

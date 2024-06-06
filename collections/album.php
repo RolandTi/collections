@@ -88,7 +88,11 @@
 							</div>
 						</div><!-- end "picture_icons" -->
 					<?php } #end else 
-						} #end function Favorites ?>
+						} #end function Favorites 
+					#function printdownloadlist
+					#if(function_exists('printdownloadList')) {
+					# printDownloadAlbumZipURL();	}
+					?>
 					</div>
 				
 				<div class="pagelist-container"><?php printPageListWithNav("← " . gettext("prev"), gettext("next") . " →"); ?></div>
