@@ -1726,6 +1726,13 @@ a.relateditems_thumb {
 	clear: both;
 	padding-bottom: 2px;
 }
+/* Featured Image Plugin */
+
+.featuredimage_singlenews,
+.featuredimage_singlepage {
+	margin-bottom: 2rem;
+}
+
 
 @media (min-width:700px) {
 	
@@ -1901,6 +1908,7 @@ a.relateditems_thumb {
 	padding-bottom: 2rem;
 	border-top: 1px solid #333;
 }
+
 
 @media (min-width:700px) {
 	.article_side {

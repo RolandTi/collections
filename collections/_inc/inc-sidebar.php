@@ -77,7 +77,7 @@ if (function_exists('printCustomMenu') && getOption('collections_custommenu')) {
 		else {echo "<li>",printCustomPageURL($archivelinktext, "archive"),"</li>";}
 		?>
 		
-		<?php if (extensionEnabled('contact_form')) { 
+		<?php if (function_exists('printContactForm')) { 
 	// This loop enable a "menu-active" class to keep conconsistency styling with printAlbumMenu function.
 		if ($_zp_gallery_page != 'contact.php') { echo '<li>',printCustomPageURL(gettext('Contact us'), 'contact', '', ''),'</li>';}
 		else { echo '<li class="menu-active">',printCustomPageURL(gettext('Contact us'), 'contact', '', ''),'</li>';} } ?>

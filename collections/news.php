@@ -18,6 +18,10 @@
 			 <?php }
        if (getPrevNewsURL() OR getNextNewsURL()) { ?><?php }
        ?>
+								<?php
+								# Display the Feature Image
+								 if (function_exists('printSizedFeaturedImage')) {
+								printSizedFeaturedImage(null,'', 1200, 580, null, null, null, null, null, 'featuredimage_singlenews', null, false, null, true); } ?>
 							<h1><?php printNewsTitle(); ?></h1>
 									<div class="article_infos">
 											<?php printNewsDate(); if (function_exists('getCommentCount')) { ?> | <?php echo gettext("Comments:"); ?>
@@ -80,6 +84,14 @@
 					<div class="article_side">
 						<h1 class="page_title"><?php echo gettext("News"); ?></h1>
 
+						
+						<?php
+							if (function_exists('printSizedFeaturedImage') && is_NewsCategory()) { // category featured image
+								printSizedFeaturedImage($_zp_current_category,'', null, 900, null, null, null, null, null, 'featuredimage_singlecategory', null, false, null, true);
+							}
+						?>
+						
+						
 						<?php # Showing Categories
 									printAllNewsCategories(gettext("All Categories"),false,"categories_list","categories_list_active");
 						?>

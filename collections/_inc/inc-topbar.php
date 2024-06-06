@@ -60,7 +60,7 @@
 		// }
 //		echo '</li>';
 		// Contact Page
-		if (extensionEnabled('contact_form')) {
+		if (function_exists('printContactForm')) {
 		echo '<li>';
 		if ($_zp_gallery_page == "contact.php") {
 			printCustomPageURL(gettext('Contact us'), 'contact', '', '','','menu-active');

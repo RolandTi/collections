@@ -9,7 +9,7 @@
 			
 			<main class="<?=$active_template ?>">
 			<h1 class="page_title"><?php echo gettext('Contact us'); ?></h1>
-			<?php printContactForm(); ?>
+			<?php contactForm::printContactForm(); ?>
 
 		</main>
 

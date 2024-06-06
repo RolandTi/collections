@@ -10,6 +10,12 @@
 			<main class="pages-layout">
 
 			<article>
+			<figure aria-hidden="true">
+			<?php
+			if (function_exists('printSizedFeaturedImage')) {
+				printSizedFeaturedImage(null,'', null, 1200, null, null, null, null, null, 'featuredimage_singlepage', null, false, null, true);} ?>
+			</figure>
+			
 			<h1><?php printPageTitle(); ?></h1>
 			
 			<?php
